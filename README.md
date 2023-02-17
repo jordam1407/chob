@@ -1,5 +1,5 @@
 <p align="center">
-  <h1>BASE PROJECT JP TECH SOLUTIONS</h1>
+  <h1>SIGE - CHATBOT</h1>
 </p>
 
 ## Features
