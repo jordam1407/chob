@@ -23,6 +23,8 @@
 | Script      | Description                            |
 | ----------- | -------------------------------------- |
 | npm run dev    | Runs the app in the development mode.  |
+| npm run start    | Runs the node server.  |
+| npm run back    | Runs the node server with nodemon.  |
 | npm run build  | Builds the app for production          |
 | npm run lint   | Runs the Eslint and show code problems |
 
