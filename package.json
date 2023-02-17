@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@trybe/eslint-config-frontend": "^1.8.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
