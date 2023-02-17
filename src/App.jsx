@@ -4,8 +4,6 @@ import Chat from './components/Chat';
 
 function App() {
   const [data, setData] = useState([]);
-  const items = data.map((item) => item.id);
-  console.log('itemsssss', items);
 
   useEffect(() => {
     const getLogin = async () => {
@@ -31,10 +29,15 @@ function App() {
   }, []);
 
   return (
-    <div className="border-2">
+    <div
+      className="flex flex-col items-center justify-center
+      px-6 py-8 mx-auto h-screen my-auto min-h-screen lg:py-0"
+    >
       <h1 className="text-5xl font-bold underline">Chat Bot</h1>
       <ul>
-        {data.map((i, index) => <li key={ index }>{`${i.id} ${i.titulo}`}</li>)}
+        {data.map((i, index) => (
+          <li key={ index }>{`${i.id} ${i.titulo}`}</li>
+        ))}
       </ul>
       <Chat />
     </div>

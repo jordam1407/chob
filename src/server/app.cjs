@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const data = require('../../data/database.json');
 
 const STATUS_CODE = 200;
 const app = express();
+app.use(cors());
+
 app.use(bodyParser.json());
 
 app.get('/search', (_req, res) => {

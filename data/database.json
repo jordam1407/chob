@@ -10,7 +10,7 @@
   "initial_config": [
     {
       "id": "1",
-      "titulo": "Adicionar Instituição",
+      "titulo": "Instituição",
       "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > CADASTROS > ADICIONAR",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Cadastro",
@@ -27,7 +27,7 @@
     },
     {
       "id": "2",
-      "titulo": "Adicionar Banco",
+      "titulo": "Banco",
       "caminho": "Na barra de menu Principal, acesse: FINANCEIRO > BANCO > BANCO",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Bancos",
@@ -42,7 +42,7 @@
     },
     {
       "id": "3",
-      "titulo": "Adicionar Especialidades",
+      "titulo": "Especialidades",
       "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > ESPECIALIDADES",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Especialidades",
@@ -57,7 +57,7 @@
     },
     {
       "id": "4",
-      "titulo": "Adicionar Procedimento",
+      "titulo": "Procedimento",
       "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > PROCEDIMENTOS",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Procedimentos",
@@ -73,7 +73,7 @@
     },
     {
       "id": "5",
-      "titulo": "Adicionar Consultório",
+      "titulo": "Consultório",
       "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > CONSULTÓRIOS",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Consultórios",
@@ -88,7 +88,7 @@
     },
     {
       "id": "6",
-      "titulo": "Adicionar Médicos",
+      "titulo": "Médicos",
       "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > MÉDICOS ADICIONAR MÉDICO",
       "passos": [
         "Crie um usuário e senha para acesso do sistema, e preencha os demais campos",
@@ -103,7 +103,7 @@
     },
     {
       "id": "7",
-      "titulo": "Adicionar Funcionários",
+      "titulo": "Funcionários",
       "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > USUÁRIOS > ADICIONAR USUÁRIO",
       "passos": [
         "Crie um usuário e senha para acesso do sistema, selecione o nível de acesso do usuário conforme explicação abaixo.",
@@ -118,7 +118,7 @@
     },
     {
       "id": "8",
-      "titulo": "Adicionar Pacientes",
+      "titulo": "Pacientes",
       "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > USUÁRIOS > ADICIONAR PACIENTE",
       "passos": [
         "Preencha todos os campos que julgar necessários, mínimo obrigatório do sistema é NOME e TELEFONE.",
