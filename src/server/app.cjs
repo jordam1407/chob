@@ -1,21 +1,13 @@
 const express = require('express');
-const cors = require('cors');
 const bodyParser = require('body-parser');
-const data = require('../../data/database.json');
+const cors = require('cors');
+const router = require('./router/index.cjs');
 
-const STATUS_CODE = 200;
 const app = express();
 app.use(cors());
 
 app.use(bodyParser.json());
 
-app.get('/search', (_req, res) => {
-  // const result = data.initial_config.filter((i) => i.id === '1')[0];
-  const result = data.initial_config;
-
-  console.log(result);
-
-  return res.status(STATUS_CODE).json(result);
-});
+app.use('/steps', router.stepRouter);
 
 module.exports = app;

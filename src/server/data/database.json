@@ -1,12 +1,13 @@
-{ "manual": {
-  "pacientes": {},
-  "agenda": {},
-  "caixa": {},
-  "financeiro": {},
-  "atendimentos": {},
-  "gestao": {},
-  "configuracoes": {}
-},
+{
+  "manual": {
+    "pacientes": {},
+    "agenda": {},
+    "caixa": {},
+    "financeiro": {},
+    "atendimentos": {},
+    "gestao": {},
+    "configuracoes": {}
+  },
   "initial_config": [
     {
       "id": "1",
