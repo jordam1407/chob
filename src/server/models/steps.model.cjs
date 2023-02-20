@@ -14,7 +14,6 @@ const getData = async () => {
 // Get the initial configuration steps
 const getSteps = async () => {
   const { initial_config: initialConfig } = await getData();
-  console.log('MODEL:', initialConfig);
   return initialConfig;
 };
 

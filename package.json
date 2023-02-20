@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "start": "node src/server/server.cjs",
-    "back": "nodemon src/server/server.cjs",
+    "start:dev": "nodemon src/server/server.cjs",
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.jsx",
     "prepare": "husky install"
