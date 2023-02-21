@@ -1,58 +1,87 @@
 import React, { useState, useEffect } from 'react';
 import getTitles from '../utils/apiFunctions';
+import sigeBot from '../assets/sigebot.png';
 
 export default function Chat() {
+  const [messages, setMessages] = useState([]);
+
+  const getSteps = async () => {
+    const titleData = await getTitles();
+    const buttons = {
+      element: (
+        <div>
+          {titleData.map((tit) => (
+            <button
+              key={ tit }
+              onClick={ () => null }
+              className="px-4 py-2 ml-0 mx-2 my-2 rounded-full inline-block text-sm
+              border border-black hover:bg-gray-300 text-gray-600"
+            >
+              {tit}
+            </button>
+          ))}
+        </div>
+      ),
+    };
+    setMessages((prev) => [...prev, buttons]);
+  };
+
+  const getManual = async () => {
+    const notImplemented = {
+      element: (
+        <span
+          className="px-4 py-2 rounded-lg inline-block text-sm rounded-tl-none
+    bg-gray-300 text-gray-600"
+        >
+          Desculpe, o Manual ainda não implementado!
+        </span>
+      ),
+    };
+    setMessages((prev) => [...prev, notImplemented]);
+  };
+
   const botMessages = [
     {
       element: (
         <span
-          className="px-4 py-2 rounded-lg inline-block text-sm rounded-bl-none
+          className="px-4 py-2 rounded-lg inline-block text-sm rounded-tl-none
       bg-gray-300 text-gray-600"
         >
           Olá, eu sou o SigeBot! Por aqui irei te ajudar a tirar suas dúvidas do
           sistema: Sige - Sistemas de Gestão.
+          <br />
+          <br />
+          Escolha uma das opções para continuar:
         </span>
       ),
     },
     {
       element: (
-        <span
-          className="px-4 py-2 rounded-lg inline-block text-sm rounded-bl-none
-        bg-gray-300 text-gray-600"
-        >
-          Escolha uma das opções:
-        </span>
+        <div>
+          <button
+            onClick={ getManual }
+            className="px-4 py-2 ml-0 mx-2 my-2 rounded-full inline-block text-sm
+          border border-black hover:bg-gray-300 text-gray-600"
+          >
+            📑 Manual
+          </button>
+          <button
+            onClick={ getSteps }
+            className="px-4 py-2 rounded-full inline-block text-sm
+          border border-black hover:bg-gray-300 text-gray-600"
+          >
+            🛠️ Configurar Sistema SIGE
+          </button>
+        </div>
       ),
     },
   ];
 
-  const [messages, setMessages] = useState(botMessages);
-  const [data, setData] = useState([]);
-  console.log(messages);
-
   useEffect(() => {
-    const getTitle = async () => {
-      const titleData = await getTitles();
-      const buttons = {
-        element: (
-          <div>
-            {titleData.map((tit) => (
-              <button
-                key={ tit }
-                onClick={ () => null }
-                className="bg-gray-400 rounded-full px-4"
-              >
-                {tit}
-              </button>
-            ))}
-          </div>
-        ),
-      };
-      console.log(buttons);
-      setMessages((prev) => [...prev, buttons]);
-    };
-    getTitle();
+    setMessages(botMessages);
   }, []);
+
+  console.log(messages);
 
   return (
     <div
@@ -62,8 +91,8 @@ export default function Chat() {
     >
       <div className="flex bg-gradient-to-r bg-gray-300 rounded-t-2xl">
         <img
-          src="https://png.pngtree.com/png-vector/20221225/ourmid/pngtree-chatbot-png-image_6536257.png"
-          className="w-20 m-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"
+          src={ sigeBot }
+          className="w-20 m-4 rounded-full bg-gray-300"
           alt=""
         />
         <span className="text-2xl my-auto ml-4 font-bold">SigeBot</span>
@@ -74,17 +103,17 @@ export default function Chat() {
           scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2
           scrolling-touch"
       >
-        <div id="bot-message" className="flex items-end">
+        <div id="bot-message" className="flex items-start">
           <div
-            className="flex flex-col space-y-2 max-w-xs mx-2 order-1
+            className="flex flex-col mt-8 space-y-2 max-w-xs mx-2 order-1
           items-start"
           >
             {messages.map((m) => m.element)}
           </div>
           <img
-            src="https://png.pngtree.com/png-vector/20221225/ourmid/pngtree-chatbot-png-image_6536257.png"
+            src={ sigeBot }
             alt="SigeBot"
-            className="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"
+            className="w-16 h-16 rounded-full bg-gray-300"
           />
         </div>
         <div id="user-message" className="flex items-end justify-end">
