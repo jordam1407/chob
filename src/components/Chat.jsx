@@ -199,8 +199,24 @@ export default function Chat() {
   };
 
   const nextStep = async () => {
-    setStep((prev) => prev + 1);
-    getStep(step + 1);
+    const titleData = await getTitles();
+    if (step < titleData.length) {
+      setStep((prev) => prev + 1);
+      getStep(step + 1);
+    } else {
+      setStep(1);
+      getStep(1);
+    }
+  };
+
+  const prevStep = async () => {
+    if (step < 1) {
+      setStep((prev) => prev - 1);
+      getStep(step - 1);
+    } else {
+      setStep(1);
+      getStep(1);
+    }
   };
 
   return (
@@ -242,20 +258,21 @@ export default function Chat() {
           />
         </div>
         {messages.map((m) => m.element)}
-        {isLoading && <Loading />}
+        {isLoading && <Loading ref={ messagesEndRef } />}
         <div ref={ messagesEndRef } />
       </div>
-      <div>
+      <div className="mx-auto">
         <button
-          className="px-4 py-2 w-fit ml-0 mx-2 my-2 rounded-full inline-block text-sm
-      border border-black hover:bg-gray-300 text-gray-600"
+          onClick={ prevStep }
+          className="px-4 py-2 w-fit mx-4 my-2 rounded-full inline-block text-sm
+      border border-black hover:bg-gray-300 text-white bg-blue-600 font-bold"
         >
           ANTERIOR
         </button>
         <button
           onClick={ nextStep }
-          className="px-4 py-2 w-fit ml-0 mx-2 my-2 rounded-full inline-block text-sm
-      border border-black hover:bg-gray-300 text-gray-600"
+          className="px-4 py-2 w-fit mx-4 my-2 rounded-full inline-block text-sm
+      border border-black hover:bg-gray-300 text-white bg-blue-600 font-bold"
         >
           PRÓXIMO
         </button>
