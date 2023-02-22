@@ -9,7 +9,6 @@ const getTitle = async () => {
 const getStep = async (id) => {
   const steps = await stepsModel.getSteps();
   const step = steps.filter((s) => s.id === id);
-  console.log('SERVICE:', step);
   return step;
 };
 

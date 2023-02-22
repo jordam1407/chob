@@ -12,29 +12,26 @@
     {
       "id": "1",
       "titulo": "Instituição",
-      "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > CADASTROS > ADICIONAR",
+      "caminho": "CONFIGURAÇÕES > CADASTROS > ADICIONAR",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Cadastro",
         "Preencha os dados da instituição de que deseja adicionar.",
-        "Clique em Salvar para concluir a adição.",
-        "fim"
+        "Clique em Salvar para concluir a adição."
       ],
       "obs": [
-        "Este passo serve para a cadastro de Clínicas, Convênios e Laboratórios",
+        "Este passo serve para o cadastro de Clínicas, Convênios e Laboratórios",
         "Para fazer agendamentos com convênio, é necessário a cadastro do mesmo.",
-        "Para adicionar procedimentos com participação de laboratório, é necessário o cadastro do mesmo.",
-        "Clique em 'Próximo' para ir ao próximo passo"
+        "Para adicionar procedimentos com participação de laboratório, é necessário o cadastro do mesmo."
       ]
     },
     {
       "id": "2",
       "titulo": "Banco",
-      "caminho": "Na barra de menu Principal, acesse: FINANCEIRO > BANCO > BANCO",
+      "caminho": "FINANCEIRO > BANCO > BANCO",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Bancos",
         "Preencha os dados da instituição de que deseja adicionar.",
-        "Clique em Salvar para concluir a adição.",
-        "fim"
+        "Clique em Salvar para concluir a adição."
       ],
       "obs": [
         "Este passo serve para a cadastro de Bancos",
@@ -44,12 +41,11 @@
     {
       "id": "3",
       "titulo": "Especialidades",
-      "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > ESPECIALIDADES",
+      "caminho": "CONFIGURAÇÕES > ESPECIALIDADES",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Especialidades",
         "Preencha o nome da especialidade que deseja adicionar.",
-        "Clique em Salvar para concluir a adição.",
-        "fim"
+        "Clique em Salvar para concluir a adição."
       ],
       "obs": [
         "Este passo serve para a adicionar uma especialidade médica",
@@ -59,13 +55,12 @@
     {
       "id": "4",
       "titulo": "Procedimento",
-      "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > PROCEDIMENTOS",
+      "caminho": "CONFIGURAÇÕES > PROCEDIMENTOS",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Procedimentos",
         "Preencha os dados do procedimento que deseja adicionar.",
         "CÓDIGO: Insira o próximo número disponível, levando em consideração os procedimentos já existentes.",
-        "Clique em Salvar para concluir a adição.",
-        "fim"
+        "Clique em Salvar para concluir a adição."
       ],
       "obs": [
         "Este passo serve para a adicionar uma especialidade médica",
@@ -75,12 +70,11 @@
     {
       "id": "5",
       "titulo": "Consultório",
-      "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > CONSULTÓRIOS",
+      "caminho": "CONFIGURAÇÕES > CONSULTÓRIOS",
       "passos": [
         "Clique no botão 'Adicionar' no canto direito da tela de Consultórios",
         "Preencha os dados do consultório que deseja adicionar.",
-        "Clique em Salvar para concluir a adição.",
-        "fim"
+        "Clique em Salvar para concluir a adição."
       ],
       "obs": [
         "Este passo serve para a adicionar um consultório",
@@ -90,11 +84,10 @@
     {
       "id": "6",
       "titulo": "Médicos",
-      "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > MÉDICOS ADICIONAR MÉDICO",
+      "caminho": "CONFIGURAÇÕES > MÉDICOS ADICIONAR MÉDICO",
       "passos": [
         "Crie um usuário e senha para acesso do sistema, e preencha os demais campos",
-        "Clique em Salvar para concluir a adição.",
-        "fim"
+        "Clique em Salvar para concluir a adição."
       ],
       "obs": [
         "Este passo serve para a adicionar um médico",
@@ -105,11 +98,10 @@
     {
       "id": "7",
       "titulo": "Funcionários",
-      "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > USUÁRIOS > ADICIONAR USUÁRIO",
+      "caminho": "CONFIGURAÇÕES > USUÁRIOS > ADICIONAR USUÁRIO",
       "passos": [
         "Crie um usuário e senha para acesso do sistema, selecione o nível de acesso do usuário conforme explicação abaixo.",
-        "Clique em Salvar para concluir a adição.",
-        "fim"
+        "Clique em Salvar para concluir a adição."
       ],
       "obs": [
         "Este passo serve para a adicionar um funcionário",
@@ -120,11 +112,10 @@
     {
       "id": "8",
       "titulo": "Pacientes",
-      "caminho": "Na barra de menu principal, acesse: CONFIGURAÇÕES > USUÁRIOS > ADICIONAR PACIENTE",
+      "caminho": "CONFIGURAÇÕES > USUÁRIOS > ADICIONAR PACIENTE",
       "passos": [
         "Preencha todos os campos que julgar necessários, mínimo obrigatório do sistema é NOME e TELEFONE.",
-        "Clique em Salvar para concluir a adição.",
-        "fim"
+        "Clique em Salvar para concluir a adição."
       ],
       "obs": [
         "Este passo serve para a adicionar um paciente",
