@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 echo '🏗️👷 Checking lint errors before committing...'
 
-npx eslint . --ext .js,.jsx ||
+npx lint-staged ||
 (
     echo '🔨❌ Yoo, you have a problem in your code. Check linter 🔨❌
           Add changes and try commit again.';
