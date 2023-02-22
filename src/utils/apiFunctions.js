@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getTitles = async () => {
-  const URL_TITLES = 'http://localhost:3001/steps';
+  const URL_TITLES = 'http://[::1]:3001/steps';
   try {
     const response = await axios.get(URL_TITLES);
     return response.data;
@@ -10,7 +10,7 @@ const getTitles = async () => {
   }
 };
 const getSteps = async (id) => {
-  const URL_STEPS = `http://localhost:3001/steps/${id}`;
+  const URL_STEPS = `http://[::1]:3001/steps/${id}`;
   try {
     const response = await axios.get(URL_STEPS);
     return response.data;
