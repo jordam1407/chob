@@ -4,13 +4,13 @@ import loading from '../assets/loading.gif';
 
 export default function Loading() {
   return (
-    <div id="bot-message" className="flex items-start">
+    <div id="bot-message" className="flex items-end">
       <div
-        className="flex flex-col mt-8 space-y-2 max-w-xs mx-2 order-1
+        className="flex flex-col mb-8 space-y-2 max-w-xs mx-2 order-1
   items-start"
       >
         <div
-          className="px-4 py-2 space-x-1 rounded-lg inline-block text-sm rounded-tl-none
+          className="px-4 py-2 space-x-1 rounded-lg inline-block text-sm rounded-bl-none
     bg-gray-300 text-gray-600"
         >
           <img src={ loading } className="w-8 m-2 animate-bounce" alt="loading" />
@@ -19,7 +19,7 @@ export default function Loading() {
       <img
         src={ sigeBot }
         alt="SigeBot"
-        className="w-16 h-16 rounded-full bg-gray-300"
+        className="md:w-16 w-12 rounded-full bg-gray-300"
       />
     </div>
   );

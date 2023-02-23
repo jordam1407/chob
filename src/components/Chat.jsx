@@ -5,13 +5,8 @@ import Loading from './Loading';
 import BotMessages from './BotMessages';
 
 export default function Chat() {
-  const {
-    messages,
-    userMessages,
-    prevStep,
-    nextStep,
-    isLoading,
-  } = useContext(BotContext);
+  const { messages,
+    userMessages, prevStep, nextStep, isLoading } = useContext(BotContext);
 
   const messagesEndRef = useRef(null);
   useEffect(() => {
@@ -20,15 +15,19 @@ export default function Chat() {
 
   return (
     <div
-      className="flex flex-col rounded-2xl
+      className="flex flex-col md:rounded-lg
       md:w-[650px] w-full md:h-[90%] h-full
-      align-middle border shadow-md"
+      align-middle shadow-md"
     >
-      <div className="flex bg-gradient-to-r bg-blue-600 rounded-t-2xl shadow-md">
-        <span className="text-2xl mx-auto md:my-8 text-white my-4 font-bold">
+      <div
+        className="flex md:static fixed md:w-[650px] w-screen md:h-24 top-0
+          bg-gradient-to-r bg-blue-600 md:rounded-t-lg shadow-md"
+      >
+        <span className="text-2xl mx-auto text-white my-auto font-bold">
           SIGE Bot
         </span>
       </div>
+      <div className="mt-20 h-20 md:hidden" />
       <div
         id="messages"
         className="flex flex-col h-full space-y-8 p-3 overflow-y-auto scrollbar-thumb-blue
@@ -59,7 +58,7 @@ export default function Chat() {
         {isLoading && <Loading />}
         <div ref={ messagesEndRef } />
       </div>
-      <div className="mx-auto">
+      <div className="mx-auto bg-gray-200 w-full flex justify-center">
         <button
           onClick={ prevStep }
           className="px-4 py-2 w-fit mx-4 my-2 rounded-full inline-block text-sm
