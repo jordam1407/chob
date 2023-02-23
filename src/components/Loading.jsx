@@ -13,7 +13,7 @@ export default function Loading() {
           className="px-4 py-2 space-x-1 rounded-lg inline-block text-sm rounded-tl-none
     bg-gray-300 text-gray-600"
         >
-          <img src={ loading } className="w-12 m-2" alt="loading" />
+          <img src={ loading } className="w-8 m-2 animate-bounce" alt="loading" />
         </div>
       </div>
       <img

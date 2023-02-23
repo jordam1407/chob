@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import propTypes from 'prop-types';
+import BotContext from '../context/BotContext';
 
-export default function BotMessages({ functions }) {
-  const { userMessages } = functions;
+export default function BotMessages() {
+  const { userMessages } = useContext(BotContext);
   return (
     <>
       <span
