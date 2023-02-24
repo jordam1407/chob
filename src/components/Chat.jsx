@@ -6,7 +6,7 @@ import BotMessages from './BotMessages';
 
 export default function Chat() {
   const { messages,
-    userMessages, prevStep, nextStep, isLoading } = useContext(BotContext);
+    prevStep, nextStep, isLoading } = useContext(BotContext);
 
   const messagesEndRef = useRef(null);
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function Chat() {
               Olá, eu sou o SigeBot! Por aqui irei te ajudar a tirar suas
               dúvidas do sistema: Sige - Sistemas de Gestão.
             </span>
-            <BotMessages functions={ { userMessages } } />
+            <BotMessages />
           </div>
           <img
             src={ sigeBot }

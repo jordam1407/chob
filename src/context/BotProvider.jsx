@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { getTitles, getSteps } from '../utils/apiFunctions';
 import BotContext from './BotContext';
 import sigeBot from '../assets/sigebot.png';
+import BotMessages from '../components/BotMessages';
 
 export default function BotProvider({ children }) {
   const [step, setStep] = useState(1);
@@ -112,7 +113,6 @@ export default function BotProvider({ children }) {
   };
 
   const getManual = async () => {
-    console.log('chamou manual');
     const notImplemented = {
       element: (
         <div id="bot-message" className="flex items-end">
@@ -126,6 +126,7 @@ export default function BotProvider({ children }) {
             >
               Sinto muito! O Manual Online ainda não foi implementado.
             </span>
+            <BotMessages />
           </div>
           <img
             src={ sigeBot }
