@@ -1,7 +1,24 @@
+import { useEffect } from 'react';
 import Chat from './components/Chat';
 import BotProvider from './context/BotProvider';
 
 function App() {
+  const MAGIC_NUMBER = 0.01;
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleResize = function size() {
+        const vh = window.innerHeight * MAGIC_NUMBER;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      handleResize();
+
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
   return (
     <div
       className="flex flex-col items-center justify-center

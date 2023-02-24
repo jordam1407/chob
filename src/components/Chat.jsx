@@ -20,19 +20,18 @@ export default function Chat() {
       align-middle shadow-md"
     >
       <div
-        className="flex md:static fixed md:w-[650px] w-screen md:h-24 top-0
-          bg-gradient-to-r bg-blue-600 md:rounded-t-lg shadow-md"
+        className="flex md:static fixed h-16 md:w-[650px] w-screen md:h-24 top-0
+          bg-gradient-to-r bg-blue-600 md:rounded-t-lg"
       >
         <span className="text-2xl mx-auto text-white my-auto font-bold">
           SIGE Bot
         </span>
       </div>
-      <div className="mt-20 h-20 md:hidden" />
       <div
         id="messages"
         className="flex flex-col h-full space-y-8 p-3 overflow-y-auto scrollbar-thumb-blue
           scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2
-          scrolling-touch"
+          scrolling-touch md:mt-0 mt-16"
       >
         <div id="bot-message" className="flex items-end">
           <div
