@@ -1,17 +1,27 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext, useState } from 'react';
+import { getTitles } from '../utils/apiFunctions';
 import BotContext from '../context/BotContext';
 import sigeBot from '../assets/sigebot.png';
 import Loading from './Loading';
-import BotMessages from './BotMessages';
+import BotButtonsOpt from './BotButtonsOpt';
 
 export default function Chat() {
   const { messages,
-    prevStep, nextStep, isLoading } = useContext(BotContext);
+    initialOptions, isLoading } = useContext(BotContext);
+  const [titles, setTitles] = useState('');
 
   const messagesEndRef = useRef(null);
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [isLoading, messages]);
+
+  useEffect(() => {
+    const initialTitles = async () => {
+      const title = await getTitles();
+      setTitles(title);
+    };
+    initialTitles();
+  }, []);
 
   return (
     <div
@@ -45,7 +55,7 @@ export default function Chat() {
               Olá, eu sou o SigeBot! Por aqui irei te ajudar a tirar suas
               dúvidas do sistema: Sige - Sistemas de Gestão.
             </span>
-            <BotMessages />
+            <BotButtonsOpt functions={ initialOptions } items={ titles } />
           </div>
           <img
             src={ sigeBot }
@@ -56,22 +66,6 @@ export default function Chat() {
         {messages.map((m) => m.element)}
         {isLoading && <Loading />}
         <div ref={ messagesEndRef } />
-      </div>
-      <div className="mx-auto bg-gray-200 w-full flex justify-center">
-        <button
-          onClick={ prevStep }
-          className="px-4 py-2 w-fit mx-4 my-2 rounded-full inline-block text-sm
-            border border-black hover:bg-gray-300 text-white bg-blue-600 font-bold"
-        >
-          ANTERIOR
-        </button>
-        <button
-          onClick={ nextStep }
-          className="px-4 py-2 w-fit mx-4 my-2 rounded-full inline-block text-sm
-            border border-black hover:bg-gray-300 text-white bg-blue-600 font-bold"
-        >
-          PRÓXIMO
-        </button>
       </div>
     </div>
   );
