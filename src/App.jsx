@@ -3,6 +3,7 @@ import Chat from './components/Chat';
 import BotProvider from './context/BotProvider';
 
 function App() {
+  // testing GitLab push
   const MAGIC_NUMBER = 0.01;
   useEffect(() => {
     if (typeof window !== 'undefined') {
