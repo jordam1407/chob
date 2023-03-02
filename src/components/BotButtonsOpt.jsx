@@ -1,19 +1,14 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default function BotButtonsOpt({ functions, items }) {
   return (
-    <>
-      <span
-        className="px-4 py-2 rounded-lg inline-block text-sm rounded-bl-none
-       bg-gray-300 text-gray-600"
-      >
-        Escolha uma das opções para continuar:
-      </span>
-      <div>
-        {items && items.map(({ emoji, titulo }) => (
+    <div>
+      {items
+        && items.map(({ emoji, titulo }, index) => (
           <button
-            key={ emoji }
-            id={ `${emoji} ${titulo}` }
+            key={ `${emoji} ${index}` }
+            id={ titulo }
+            value={ `${emoji} ${titulo}` }
             onClick={ functions }
             className="px-4 py-2 ml-0 mx-2 my-2 rounded-full inline-block text-sm
           border border-black hover:bg-gray-300 text-gray-600"
@@ -21,19 +16,19 @@ export default function BotButtonsOpt({ functions, items }) {
             {`${emoji} ${titulo}`}
           </button>
         ))}
-      </div>
-    </>
+    </div>
   );
 }
 
 BotButtonsOpt.propTypes = {
-  functions: propTypes.shape({
-    userMessages: propTypes.func.isRequired,
-  }).isRequired,
-  items: propTypes.arrayOf(
-    propTypes.shape({
-      emoji: propTypes.string.isRequired,
-      titulo: propTypes.string.isRequired,
-    }),
-  ).isRequired,
+  functions: PropTypes.func.isRequired,
+  items: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        emoji: PropTypes.string.isRequired,
+        titulo: PropTypes.string.isRequired,
+      }),
+    ),
+    PropTypes.string,
+  ]).isRequired,
 };

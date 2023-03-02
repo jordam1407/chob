@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useContext, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useContext,
+  useState,
+  cloneElement,
+} from 'react';
 import { getTitles } from '../utils/apiFunctions';
 import BotContext from '../context/BotContext';
 import sigeBot from '../assets/sigebot.png';
@@ -6,8 +12,7 @@ import Loading from './Loading';
 import BotButtonsOpt from './BotButtonsOpt';
 
 export default function Chat() {
-  const { messages,
-    initialOptions, isLoading } = useContext(BotContext);
+  const { messages, initialOptions, isLoading } = useContext(BotContext);
   const [titles, setTitles] = useState('');
 
   const messagesEndRef = useRef(null);
@@ -63,9 +68,15 @@ export default function Chat() {
             className="md:w-16 w-12 rounded-full bg-gray-300"
           />
         </div>
-        {messages.map((m) => m.element)}
+        {messages.map((m, i) => cloneElement(m.element, { key: i }))}
         {isLoading && <Loading />}
         <div ref={ messagesEndRef } />
+      </div>
+      <div className="mx-auto">
+        <BotButtonsOpt
+          functions={ initialOptions }
+          items={ [{ titulo: 'Voltar ao menu inicial', emoji: '🔙' }] }
+        />
       </div>
     </div>
   );
