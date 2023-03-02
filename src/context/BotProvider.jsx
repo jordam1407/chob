@@ -37,7 +37,7 @@ export default function BotProvider({ children }) {
         <BotMessage
           text={ [OPTION_MESSAGE] }
           functions={
-            <BotButtonsOpt functions={ lastOption } items={ title } />
+            <BotButtonsOpt functions={ initialOptions } items={ title } />
           }
         />
       ),
