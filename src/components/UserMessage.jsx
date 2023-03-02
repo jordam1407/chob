@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default function UserMessage({ message }) {
   return (
@@ -27,5 +27,8 @@ export default function UserMessage({ message }) {
 }
 
 UserMessage.propTypes = {
-  message: propTypes.number.isRequired,
+  message: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };

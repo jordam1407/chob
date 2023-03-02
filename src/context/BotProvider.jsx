@@ -1,8 +1,17 @@
+/* eslint-disable max-lines */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable no-use-before-define */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { getStepTitles, getSteps, getTitles } from '../utils/apiFunctions';
+import {
+  getStepTitles,
+  getSteps,
+  getTitles,
+  getParentOption,
+  getChildOption,
+  getGrandChildOption,
+  getLastResult,
+} from '../utils/apiFunctions';
 import BotContext from './BotContext';
 import sigeBot from '../assets/sigebot.png';
 import BotButtonsOpt from '../components/BotButtonsOpt';
@@ -10,10 +19,35 @@ import NextPrev from '../components/NextPrev';
 import UserMessage from '../components/UserMessage';
 import BotMessage from '../components/BotMessage';
 
+const OPTION_MESSAGE = 'Muito bem! Agora escolha uma das opções para continuarmos:';
+
+const QUINHENTOS = 500;
+
 export default function BotProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState([]);
-  console.log(messages);
+  const [parent, setParent] = useState('');
+  const [child, setChild] = useState('');
+  const [lastChild, setLastChild] = useState('');
+
+  const firstMenu = async () => {
+    const title = await getTitles();
+    const notImplemented = {
+      element: (
+        <BotMessage
+          text={ [OPTION_MESSAGE] }
+          functions={
+            <BotButtonsOpt functions={ lastOption } items={ title } />
+          }
+        />
+      ),
+    };
+    const quinhentos = 500;
+    setTimeout(() => {
+      setMessages((prev) => [...prev, notImplemented]);
+      setIsLoading(false);
+    }, quinhentos);
+  };
 
   const createUserMessage = (text) => {
     const userMessage = {
@@ -31,7 +65,7 @@ export default function BotProvider({ children }) {
         element: (
           <div id="bot-message" className="flex items-end">
             <div
-              className="flex flex-col mb-8 space-y-2 max-w-xs mx-2 order-1
+              className="flex flex-col mb-8 space-y-2 mx-2 order-1
             items-start"
             >
               <div
@@ -76,19 +110,18 @@ export default function BotProvider({ children }) {
           </div>
         ),
       };
-      const quinhentos = 500;
       setTimeout(() => {
         setMessages((prev) => [...prev, buttons]);
         setIsLoading(false);
-      }, quinhentos);
+      }, QUINHENTOS);
     } else {
       const finishMessage = {
         element: (
           <BotMessage
             text={ [
-              '🎉 Parabéns! 🎉',
-              '🎉🎉🎉 A configuração inicial do sistema SIGE Médico está completa! 🎉🎉🎉',
-              '🚀 Vamos começar esta jornada emocionante juntos! 🚀',
+              '🎉 Parabéns!',
+              '✔️ A configuração inicial do sistema SIGE Médico está completa!',
+              '🚀 Vamos começar esta jornada emocionante juntos!',
             ] }
             functions={
               <BotButtonsOpt
@@ -99,11 +132,10 @@ export default function BotProvider({ children }) {
           />
         ),
       };
-      const quinhentos = 500;
       setTimeout(() => {
         setMessages((prev) => [...prev, finishMessage]);
         setIsLoading(false);
-      }, quinhentos);
+      }, QUINHENTOS);
     }
   };
 
@@ -114,7 +146,7 @@ export default function BotProvider({ children }) {
       element: (
         <div id="bot-message" className="flex items-end">
           <div
-            className="flex flex-col mb-8 space-y-2 max-w-xs mx-2 order-1
+            className="flex flex-col mb-8 space-y-2 mx-2 order-1
           items-start"
           >
             <span
@@ -153,20 +185,139 @@ export default function BotProvider({ children }) {
         </div>
       ),
     };
-    const quinhentos = 500;
+
     setTimeout(() => {
       setMessages((prev) => [...prev, configMessage]);
       setIsLoading(false);
-    }, quinhentos);
+    }, QUINHENTOS);
+  };
+
+  const getLastOptions = async (titulo, subtitulo, lastText) => {
+    const result = await getLastResult(titulo, subtitulo, lastText);
+    const childOptions = {
+      element: (
+        <BotMessage
+          text={
+            result[0].texto
+              ? [result[0].texto]
+              : ['Descrição da opção ainda não foi implementada!']
+          }
+        />
+      ),
+    };
+    setTimeout(() => {
+      setMessages((prev) => [...prev, childOptions]);
+      setIsLoading(false);
+    }, QUINHENTOS);
+  };
+
+  useEffect(() => {
+    if (parent !== '') {
+      getLastOptions(parent, child, lastChild);
+    }
+  }, [lastChild]);
+
+  const lastOption = (e) => {
+    createUserMessage(e.target.value);
+    setLastChild(e.target.id);
+  };
+
+  const getGrandChildOptions = async (e) => {
+    setIsLoading(true);
+    createUserMessage(e.target.value);
+    setChild(e.target.id);
+    const result = await getGrandChildOption(parent, e.target.id);
+    if (result[0].opcoes) {
+      const childOptions = {
+        element: (
+          <BotMessage
+            text={ [OPTION_MESSAGE] }
+            functions={
+              <BotButtonsOpt functions={ lastOption } items={ result[0].opcoes } />
+            }
+          />
+        ),
+      };
+      setTimeout(() => {
+        setMessages((prev) => [...prev, childOptions]);
+        setIsLoading(false);
+      }, QUINHENTOS);
+    } else {
+      const childOptions = {
+        element: (
+          <BotMessage
+            text={
+              result[0].texto || [
+                'Descrição da opção ainda não foi implementada!']
+            }
+          />
+        ),
+      };
+      setTimeout(() => {
+        setMessages((prev) => [...prev, childOptions]);
+        setIsLoading(false);
+      }, QUINHENTOS);
+    }
+  };
+
+  const getChildOptions = async (titulo) => {
+    setIsLoading(true);
+    const result = await getChildOption(titulo);
+    const childOptions = {
+      element: (
+        <BotMessage
+          text={ [OPTION_MESSAGE] }
+          functions={
+            <BotButtonsOpt functions={ getGrandChildOptions } items={ result } />
+          }
+        />
+      ),
+    };
+    setTimeout(() => {
+      setMessages((prev) => [...prev, childOptions]);
+      setIsLoading(false);
+    }, QUINHENTOS);
+  };
+
+  useEffect(() => {
+    console.log('entrei aqui', parent);
+    if (parent !== '') {
+      console.log('entrei aqui tmbem');
+      getChildOptions(parent);
+    }
+  }, [parent]);
+
+  const parentOption = async (e) => {
+    console.log('uai mudou', parent);
+    createUserMessage(e.target.value);
+    setParent(e.target.id);
   };
 
   const getManual = async () => {
+    setIsLoading(true);
+    const title = await getParentOption();
+    const parentOptions = {
+      element: (
+        <BotMessage
+          text={ ['Muito bem! Agora escolha uma das opções do menu principal:'] }
+          functions={ <BotButtonsOpt functions={ parentOption } items={ title } /> }
+        />
+      ),
+    };
+
+    setTimeout(() => {
+      setMessages((prev) => [...prev, parentOptions]);
+      setIsLoading(false);
+    }, QUINHENTOS);
+  };
+
+  const getFaq = async () => {
     const title = await getTitles();
 
     const notImplemented = {
       element: (
         <BotMessage
-          text={ ['Sinto muito! O Manual Online ainda não foi implementado.'] }
+          text={ ['Sinto muito! O FAQ ainda não foi implementado.'] }
           functions={ <BotButtonsOpt functions={ initialOptions } items={ title } /> }
         />
       ),
@@ -179,15 +330,21 @@ export default function BotProvider({ children }) {
   };
 
   const initialOptions = (e) => {
-    createUserMessage(e.target.id);
-    if (e.target.id === '🛠️ Configurar Sistema SIGE') {
+    createUserMessage(e.target.value);
+    if (e.target.value === '🛠️ Configurar Sistema SIGE') {
       return setConfigMsg();
     }
-    if (e.target.id === '📖 Manual') {
+    if (e.target.value === '📖 Manual') {
       return getManual();
     }
-    if (e.target.id === '🔙 Voltar ao início') {
+    if (e.target.value === '❓ Perguntas Frequentes') {
+      return getFaq();
+    }
+    if (e.target.value === '🔙 Voltar ao início') {
       return setMessages([]);
+    }
+    if (e.target.value === '🔙 Voltar ao menu inicial') {
+      return firstMenu();
     }
   };
 
