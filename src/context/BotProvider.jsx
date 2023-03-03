@@ -199,7 +199,7 @@ export default function BotProvider({ children }) {
         <BotMessage
           text={
             result[0].texto
-              ? [result[0].texto]
+              ? result[0].texto
               : ['Descrição da opção ainda não foi implementada!']
           }
         />
