@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import sigeBot from '../assets/sigebot.png';
 
-export default function BotMessage({ text, functions }) {
+export default function BotMessage({ text = '', functions = [] }) {
   return (
     <div id="bot-message" className="flex items-end">
       <div
@@ -29,6 +29,6 @@ export default function BotMessage({ text, functions }) {
 }
 
 BotMessage.propTypes = {
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
-  functions: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  functions: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 };

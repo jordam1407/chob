@@ -60,7 +60,6 @@ const getChildOption = async (titulo) => {
   }
 };
 const getGrandChildOption = async (titulo, subtitulo) => {
-  console.log(titulo, subtitulo);
   const encodedTitulo = encodeUrl(titulo);
   const encodedSubtitulo = encodeUrl(subtitulo);
   const URL = `https://sigebot-back.vercel.app/steps/manual/grandchild?titulo=${encodedTitulo}&subtitulo=${encodedSubtitulo}`;

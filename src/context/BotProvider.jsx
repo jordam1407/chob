@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable no-use-before-define */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   getStepTitles,
@@ -26,9 +26,10 @@ const QUINHENTOS = 500;
 export default function BotProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [parent, setParent] = useState('');
-  const [child, setChild] = useState('');
-  const [lastChild, setLastChild] = useState('');
+  // const [parent, setParent] = useState('');
+  // const [parentUpdated, setParentUpdated] = useState(false);
+  // const [child, setChild] = useState('');
+  // const [lastChild, setLastChild] = useState('');
 
   const firstMenu = async () => {
     const title = await getTitles();
@@ -36,9 +37,7 @@ export default function BotProvider({ children }) {
       element: (
         <BotMessage
           text={ [OPTION_MESSAGE] }
-          functions={
-            <BotButtonsOpt functions={ initialOptions } items={ title } />
-          }
+          functions={ <BotButtonsOpt functions={ initialOptions } items={ title } /> }
         />
       ),
     };
@@ -192,8 +191,9 @@ export default function BotProvider({ children }) {
     }, QUINHENTOS);
   };
 
-  const getLastOptions = async (titulo, subtitulo, lastText) => {
-    const result = await getLastResult(titulo, subtitulo, lastText);
+  const getLastOptions = async (e, titulo, subtitulo) => {
+    setIsLoading(true);
+    const result = await getLastResult(titulo, subtitulo, e.target.id);
     const childOptions = {
       element: (
         <BotMessage
@@ -211,29 +211,21 @@ export default function BotProvider({ children }) {
     }, QUINHENTOS);
   };
 
-  useEffect(() => {
-    if (parent !== '') {
-      getLastOptions(parent, child, lastChild);
-    }
-  }, [lastChild]);
-
-  const lastOption = (e) => {
-    createUserMessage(e.target.value);
-    setLastChild(e.target.id);
-  };
-
-  const getGrandChildOptions = async (e) => {
+  const getGrandChildOptions = async (e, titulo) => {
     setIsLoading(true);
     createUserMessage(e.target.value);
-    setChild(e.target.id);
-    const result = await getGrandChildOption(parent, e.target.id);
+    const subtitle = e.target.id;
+    const result = await getGrandChildOption(titulo, e.target.id);
     if (result[0].opcoes) {
       const childOptions = {
         element: (
           <BotMessage
             text={ [OPTION_MESSAGE] }
             functions={
-              <BotButtonsOpt functions={ lastOption } items={ result[0].opcoes } />
+              <BotButtonsOpt
+                functions={ (ev) => getLastOptions(ev, titulo, subtitle) }
+                items={ result[0].opcoes }
+              />
             }
           />
         ),
@@ -268,7 +260,10 @@ export default function BotProvider({ children }) {
         <BotMessage
           text={ [OPTION_MESSAGE] }
           functions={
-            <BotButtonsOpt functions={ getGrandChildOptions } items={ result } />
+            <BotButtonsOpt
+              functions={ (e) => getGrandChildOptions(e, titulo) }
+              items={ result }
+            />
           }
         />
       ),
@@ -279,18 +274,9 @@ export default function BotProvider({ children }) {
     }, QUINHENTOS);
   };
 
-  useEffect(() => {
-    console.log('entrei aqui', parent);
-    if (parent !== '') {
-      console.log('entrei aqui tmbem');
-      getChildOptions(parent);
-    }
-  }, [parent]);
-
   const parentOption = async (e) => {
-    console.log('uai mudou', parent);
     createUserMessage(e.target.value);
-    setParent(e.target.id);
+    getChildOptions(e.target.id);
   };
 
   const getManual = async () => {
