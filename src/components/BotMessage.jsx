@@ -10,7 +10,7 @@ export default function BotMessage({ text = '', functions = [] }) {
     items-start"
       >
         <span
-          className="px-4 py-2 rounded-lg inline-block text-sm rounded-bl-none
+          className="px-4 py-2 space-y-6 rounded-lg inline-block text-sm rounded-bl-none
         bg-gray-300 text-gray-600"
         >
           {text.map((t, i) => (
