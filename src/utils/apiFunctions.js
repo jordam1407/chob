@@ -70,11 +70,32 @@ const getGrandChildOption = async (titulo, subtitulo) => {
     return console.log(error.message);
   }
 };
+
 const getLastResult = async (titulo, subtitulo, lastText) => {
   const encodedTitulo = encodeUrl(titulo);
   const encodedSubtitulo = encodeUrl(subtitulo);
   const encodedLastText = encodeUrl(lastText);
   const URL = `https://sigebot-back.vercel.app/steps/manual/lastresult?titulo=${encodedTitulo}&subtitulo=${encodedSubtitulo}&lastText=${encodedLastText}`;
+  try {
+    const response = await axios.get(URL);
+    return response.data;
+  } catch (error) {
+    return console.log(error.message);
+  }
+};
+
+const getFaqs = async () => {
+  const URL = 'https://sigebot-back.vercel.app/faq';
+  try {
+    const response = await axios.get(URL);
+    return response.data;
+  } catch (error) {
+    return console.log(error.message);
+  }
+};
+
+const getFaqsOpt = async (id) => {
+  const URL = `https://sigebot-back.vercel.app/faq/${id}`;
   try {
     const response = await axios.get(URL);
     return response.data;
@@ -91,4 +112,6 @@ export {
   getChildOption,
   getGrandChildOption,
   getLastResult,
+  getFaqs,
+  getFaqsOpt,
 };

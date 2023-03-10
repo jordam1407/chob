@@ -4,8 +4,9 @@ export default function BotButtonsOpt({ functions, items }) {
   return (
     <div>
       {items
-        && items.map(({ emoji, titulo }, index) => (
+        && items.map(({ emoji, titulo, id }, index) => (
           <button
+            name={ id }
             key={ `${emoji} ${index}` }
             id={ titulo }
             value={ `${emoji} ${titulo}` }
