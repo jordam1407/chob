@@ -11,6 +11,8 @@ import {
   getChildOption,
   getGrandChildOption,
   getLastResult,
+  getFaqs,
+  getFaqsOpt,
 } from '../utils/apiFunctions';
 import BotContext from './BotContext';
 import sigeBot from '../assets/sigebot.png';
@@ -199,8 +201,6 @@ export default function BotProvider({ children }) {
         <BotMessage
           text={
             result[0].texto
-              ? result[0].texto
-              : ['Descrição da opção ainda não foi implementada!']
           }
         />
       ),
@@ -297,14 +297,36 @@ export default function BotProvider({ children }) {
     }, QUINHENTOS);
   };
 
+  const getFaqOpts = async (e) => {
+    createUserMessage(e.target.id);
+    setIsLoading(true);
+    const opt = await getFaqsOpt(e.target.name);
+    const childOptions = {
+      element: (
+        <BotMessage
+          text={
+            opt[0].texto
+              ? opt[0].texto
+              : ['Descrição da opção ainda não foi implementada!']
+          }
+        />
+      ),
+    };
+    setTimeout(() => {
+      setMessages((prev) => [...prev, childOptions]);
+      setIsLoading(false);
+    }, QUINHENTOS);
+  };
+
   const getFaq = async () => {
-    const title = await getTitles();
+    setIsLoading(true);
+    const title = await getFaqs();
 
     const notImplemented = {
       element: (
         <BotMessage
-          text={ ['Sinto muito! O FAQ ainda não foi implementado.'] }
-          functions={ <BotButtonsOpt functions={ initialOptions } items={ title } /> }
+          text={ ['Muito bem! Agora escolha uma das opções:'] }
+          functions={ <BotButtonsOpt functions={ getFaqOpts } items={ title } /> }
         />
       ),
     };

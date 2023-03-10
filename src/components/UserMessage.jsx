@@ -14,7 +14,6 @@ export default function UserMessage({ message }) {
         bg-blue-600 text-white "
         >
           {message}
-          .
         </span>
       </div>
       <img
