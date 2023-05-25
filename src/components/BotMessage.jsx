@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sigeBot from '../assets/sigebot.png';
+import chob from '../assets/chob-sem-fundo.png';
 
 export default function BotMessage({ text = '', functions = [] }) {
   return (
@@ -11,19 +11,24 @@ export default function BotMessage({ text = '', functions = [] }) {
       >
         <span
           className="px-4 py-2 space-y-6 rounded-lg inline-block text-sm rounded-bl-none
-        bg-gray-300 text-gray-600"
+        bg-[#DCE0F5] text-gray-600"
         >
           {text.map((t, i) => (
-            <p key={ i }>{t}</p>
+            <>
+              <span key={ i }>{t}</span>
+              <br />
+            </>
           ))}
         </span>
         {functions}
       </div>
-      <img
-        src={ sigeBot }
-        alt="SigeBot"
-        className="md:w-16 w-12 rounded-full bg-gray-300"
-      />
+      <div
+        className="relative rounded-full bg-gradient-to-r from-indigo-800 to-indigo-900
+        p-1"
+      >
+        <img src={ chob } alt="SigeBot" className="w-16" />
+        <div className="absolute bottom-0 right-0 h-2 w-2 bg-green-400 rounded-full" />
+      </div>
     </div>
   );
 }

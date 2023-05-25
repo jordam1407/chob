@@ -19,7 +19,7 @@ export default function UserMessage({ message }) {
       <img
         src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
         alt="My profile"
-        className="md:w-16 w-12 order-2"
+        className="w-10 order-2"
       />
     </div>
   );

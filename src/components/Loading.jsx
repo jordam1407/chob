@@ -1,5 +1,5 @@
 import React from 'react';
-import sigeBot from '../assets/sigebot.png';
+import chob from '../assets/chob.png';
 import loading from '../assets/loading.gif';
 
 export default function Loading() {
@@ -17,8 +17,8 @@ export default function Loading() {
         </div>
       </div>
       <img
-        src={ sigeBot }
-        alt="SigeBot"
+        src={ chob }
+        alt="chob"
         className="md:w-16 w-12 rounded-full bg-gray-300"
       />
     </div>

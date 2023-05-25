@@ -1,20 +1,22 @@
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
+import BotContext from '../context/BotContext';
 
-export default function BotButtonsOpt({ functions, items }) {
+export default function BotButtonsOpt({ items }) {
+  const { userMessage } = useContext(BotContext);
   return (
     <div>
       {items
-        && items.map(({ emoji, titulo, id }, index) => (
+        && items.map(({ label, trigger }, index) => (
           <button
-            name={ id }
-            key={ `${emoji} ${index}` }
-            id={ titulo }
-            value={ `${emoji} ${titulo}` }
-            onClick={ functions }
+            key={ `${trigger}${index}` }
+            onClick={ () => {
+              userMessage(label, trigger);
+            } }
             className="px-4 py-2 ml-0 mx-2 my-2 rounded-full inline-block text-sm
-          border border-black hover:bg-gray-300 text-gray-600"
+          border-2 border-blue-600 hover:bg-blue-100 text-gray-600"
           >
-            {`${emoji} ${titulo}`}
+            {label}
           </button>
         ))}
     </div>
@@ -22,12 +24,11 @@ export default function BotButtonsOpt({ functions, items }) {
 }
 
 BotButtonsOpt.propTypes = {
-  functions: PropTypes.func.isRequired,
   items: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.shape({
-        emoji: PropTypes.string.isRequired,
-        titulo: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        trigger: PropTypes.string.isRequired,
       }),
     ),
     PropTypes.string,
