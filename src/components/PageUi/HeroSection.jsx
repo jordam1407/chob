@@ -30,10 +30,10 @@ function Index() {
             <p className="font-custom mt-5 sm:mt-10 lg:w-10/12 text-gray-300 font-normal text-center text-sm sm:text-lg">Otimize suas Vendas e Fidelize Clientes: Transforme seu Site com Chob, o Companheiro de ChatBot Definitivo. Experimente Agora!</p>
           </div>
           <div className="flex justify-center items-center">
-            <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 bg-orange-600 transition duration-150 ease-in-out hover:bg-orange-700 lg:text-xl lg:font-bold  rounded text-white px-4 sm:px-10 border border-orange-600 py-2 sm:py-4 text-sm">Iniciar Agora</button>
-            <button className="ml-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 bg-transparent transition duration-150 ease-in-out hover:border-orange-600 lg:text-xl lg:font-bold  hover:text-orange-500 rounded border border-gray-600 text-gray-100 px-4 sm:px-10 py-2 sm:py-4 text-sm">Live Demo</button>
+            <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 bg-orange-600 transition duration-150 ease-in-out hover:bg-orange-700 lg:text-xl lg:font-semibold  rounded text-white px-4 sm:px-10 border border-orange-600 py-2 sm:py-4 text-sm">Iniciar Agora</button>
+            <button className="ml-4 focus:outline-none focus:ring-offset-2 rounded bg-transparent transition duration-150 ease-in-out hover:border-orange-600 lg:text-xl md:font-semibold text-gray-800 bg-white hover:bg-gray-200 font-medium focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 px-4 sm:px-10 py-2 sm:py-4 text-sm">Live Demo</button>
           </div>
-          <svg xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 animate-bounce" width="40" height="40" viewBox="0 0 24 24" strokeWidth="2" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="absolute md:bottom-0 bottom-32 animate-bounce" width="40" height="40" viewBox="0 0 24 24" strokeWidth="2" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M7 7l5 5l5 -5" />
             <path d="M7 13l5 5l5 -5" />

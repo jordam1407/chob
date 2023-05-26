@@ -5,24 +5,24 @@ import chob from '../../assets/chob-sem-fundo.png';
 
 const navs = [
   {
-    text: 'Home',
-    link: '/',
+    text: 'Início',
+    link: '/home',
   },
   {
-    text: 'About',
-    link: '/',
+    text: 'Produto',
+    link: '/home',
   },
   {
     text: 'Blog',
-    link: '/',
+    link: '/home',
   },
   {
     text: 'FAQ',
-    link: '/',
+    link: '/home',
   },
   {
-    text: 'Contact',
-    link: '/',
+    text: 'Contato',
+    link: '/home',
   },
 ];
 
@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <div className="font-custom">
       <nav className="relative px-4 py-4 lg:mx-auto flex md:justify-center justify-between shadow items-center bg-gray-900">
-        <div className="flex md:w-[80%] w-full justify-between">
+        <div className="flex w-full justify-between">
           <a className="text-3xl font-bold leading-none flex" href="/">
             <img className="h-12" src={ chob } alt="" />
             <h4 className="font-custom font-medium my-auto text-xl ml-2 text-gray-50">Chob</h4>
