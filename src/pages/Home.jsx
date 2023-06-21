@@ -7,6 +7,8 @@ import Header from '../components/PageUi/Header';
 import Footer from '../components/PageUi/Footer/Footer';
 import HowItWorksSection from '../components/PageUi/HowItWorksSection/HowItWorksSection';
 import MiddleCTASection from '../components/MiddleCTASection';
+import NumbersSection from '../components/PageUi/NumbersSection';
+import PricingSection from '../components/PageUi/PricingSection';
 
 export default function Home() {
   const { open } = useContext(BotContext);
@@ -16,6 +18,8 @@ export default function Home() {
       <HeroSection />
       <HowItWorksSection />
       <MiddleCTASection />
+      <PricingSection />
+      <NumbersSection />
       <Footer />
       {!open && <FabChat />}
       {open && <Chat />}

@@ -3,11 +3,13 @@
 import React from 'react';
 import { withAnimation } from '../hocs';
 import bgPattern from '../../assets/pattern.dark2.svg';
+import bgOrange from '../../assets/orange.svg';
 
 function MiddleCTASection() {
   return (
-    <section className="relative py-16 mb-24">
-      <div className="absolute bottom-0 left-0 h-[150px] w-full bg-orange-500" />
+    <section className="relative py-16 pb-24">
+      <div className="absolute bottom-10 left-0 h-[150px] w-full bg-orange-500" />
+      <img src={ bgOrange } alt="" className="w-full bg-gray-100 absolute -bottom-5 left-0" />
       <div className="container px-4 mx-auto">
         <div className="relative py-16 px-4 md:px-24 bg-gray-900 rounded-xl">
           <img

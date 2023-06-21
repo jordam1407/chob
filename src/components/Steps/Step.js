@@ -5,26 +5,53 @@ const greetings = [
   'Estou aqui para responder às suas perguntas.',
   'É um prazer ajudar. Como posso ser útil?',
 ];
+const endGreetings = [
+  'Obrigado por conversar conosco!',
+  'Agradecemos seu tempo e interesse!',
+  'Se tiver mais alguma dúvida, fique à vontade para entrar em contato!',
+  'Tenha um ótimo dia!',
+  'Estamos ansiosos para falar com você novamente!!',
+  'Sinta-se à vontade para nos contatar a qualquer momento!',
+];
+const additionalHelpMessages = [
+  'Posso ajudar com mais alguma coisa?',
+  'Existe algo mais em que eu possa ajudar?',
+  'Precisa de ajuda com alguma outra questão?',
+  'Alguma outra dúvida ou informação que posso fornecer?',
+  'Estou à disposição se precisar de mais ajuda em algo.',
+];
 
-function getRandomGreeting() {
-  const randomIndex = Math.floor(Math.random() * greetings.length);
-  return greetings[randomIndex];
+function getRandomGreeting(messages) {
+  const randomIndex = Math.floor(Math.random() * messages.length);
+  return messages[randomIndex];
 }
-
-const greeting = getRandomGreeting();
 
 const steps = [
   {
-    id: '0',
-    title: 'Olá, eu sou o Chob.',
-    message: greeting,
+    id: 'end',
+    message: [getRandomGreeting(endGreetings)],
+    end: true,
+  },
+  {
+    id: 'help',
+    message: getRandomGreeting(additionalHelpMessages),
     options: [
-      { value: ['⚡ Teste grátis', 'teste grátis', 'free trial', 'teste', 'grátis', 'gratis'], label: '⚡ Teste grátis', trigger: '1' },
-      { value: ['💲 Preços', 'preços', 'pricing', 'preco', 'valor', 'preço'], label: '💲 Preços', trigger: '2' },
-      { value: ['💻 Contatar vendas', 'contatar vendas', 'sales', 'vendedor', 'atendente'], label: '💻 Contatar vendas', trigger: '3' },
-      { value: ['💡 Sobre o Chob', 'sobre o chob', 'about Chob', 'sobre', 'chob'], label: '💡 Sobre o Chob', trigger: '4' },
+      { value: ['sim', 'claro', 'com certeza', 'certamente', 'sem dúvida', 'é verdade', 'sim, por favor', 'sim, eu aceito'], label: 'Sim', trigger: '0' },
+      { value: ['não', 'não, obrigado', 'não quero', 'de jeito nenhum', 'nem pensar', 'não, obrigada'], label: 'Não', trigger: 'end' },
     ],
   },
+  {
+    id: '0',
+    title: 'Olá, eu sou o Chob.',
+    message: getRandomGreeting(greetings),
+    options: [
+      { value: ['⚡ Teste grátis', 'teste grátis', 'free trial', 'teste', 'grátis', 'gratis'], label: '⚡ Teste grátis', trigger: '1' },
+      { value: ['💲 Preços', 'preços', 'pricing', 'preco', 'valor', 'preço'], label: '💲 Preços', trigger: '4' },
+      { value: ['💻 Contatar vendas', 'contatar vendas', 'sales', 'vendedor', 'atendente'], label: '💻 Contatar vendas', trigger: '5' },
+      { value: ['💡 Sobre o Chob', 'sobre o chob', 'about Chob', 'sobre', 'chob'], label: '💡 Sobre o Chob', trigger: '' },
+    ],
+  },
+  // teste grátis path
   {
     id: '1',
     title: 'Pare de perder Leads, dê uma chance ao Chob!',
@@ -32,66 +59,49 @@ const steps = [
       'Você pode testar o Chob por 14 dias grátis sem nenhum compromisso!',
     ],
     options: [
-      { value: ['Iniciar o teste agora', 'teste', 'iniciar', 'agora'], label: 'Iniciar o teste agora', trigger: '5' },
-      { value: ['Tabela de preços', 'preços', 'preco', 'tabela', 'planos', 'preço'], label: 'Tabela de preços', trigger: '6' },
+      { value: ['Iniciar o teste agora', 'teste', 'iniciar', 'agora'], label: 'Iniciar o teste agora', trigger: '2' },
+      { value: ['Tabela de preços', 'preços', 'preco', 'tabela', 'planos', 'preço'], label: 'Tabela de preços', trigger: '4' },
       { value: ['Voltar ao menu', 'menu', 'inicio', 'início'], label: 'Voltar ao menu', trigger: '0' },
     ],
   },
   {
     id: '2',
-    title: 'Nós temos o melhor Custo x Benefício do Mercado!',
-    message: 'Veja nossos planos e preços detalhados:',
-    options: [
-      { value: ['Plano Básico'], label: 'Plano Básico', trigger: '7' },
-      { value: ['Plano Avançado'], label: 'Plano Avançado', trigger: '8' },
-      { value: ['Plano Premium'], label: 'Plano Premium', trigger: '9' },
-    ],
+    message: 'Maravilha! São 7 dias de teste grátis no plano "Pro", após preencher o formulário, nosso time entrará em contato para montar seu Chatbot Personalizado!',
+    component:
+      { value: 'test form', trigger: '3' },
+
   },
   {
     id: '3',
-    title: 'Pare de perder Leads, dê uma chance ao Chob',
-    message: 'Entre em contato com nossa equipe de vendas para mais informações.',
-    // Add other properties as needed
-    options: [
-      { value: ['Telefone'], label: 'Telefone', trigger: '10' },
-      { value: ['Email'], label: 'Email', trigger: '11' },
-    ],
+    message: 'Parabéns! Seu teste grátis foi solicitado. Entraremos em contato em breve com os próximos passos.',
+    trigger: 'help',
   },
   {
     id: '4',
-    message: 'Conheça mais sobre o Chob e nossa missão.',
-    // Add other properties as needed
-    options: [
-      { value: ['História da Empresa'], label: 'História da Empresa', trigger: '12' },
-      { value: ['Equipe'], label: 'Equipe', trigger: '13' },
-    ],
+    message: 'Ótimo, aqui está nossa tabela de preços:',
+    component:
+      { value: 'price table' },
   },
   {
     id: '5',
-    message: 'Iniciando o teste agora. Como posso te ajudar?',
-    // Add other properties as needed
-    options: [
-      { value: ['Opção 1'], label: 'Opção 1', trigger: '14' },
-      { value: ['Opção 2'], label: 'Opção 2', trigger: '15' },
-    ],
+    message: 'Muito bem, por favor preencha o formulário para prosseguirmos.',
+    component:
+      { value: 'test form', trigger: '6' },
   },
   {
     id: '6',
-    message: 'Aqui está a tabela de preços dos nossos planos.',
-    // Add other properties as needed
-    options: [
-      { value: ['Opção 1'], label: 'Opção 1', trigger: '16' },
-      { value: ['Opção 2'], label: 'Opção 2', trigger: '17' },
-    ],
+    message: 'Que bacana, nosso time de vendas entrará em contato o mais rápido possível!',
+    trigger: 'help',
   },
 ];
 
 export function chatbot(nodeId) {
+  console.log(nodeId);
   if (!nodeId) {
-    return steps[0];
+    return steps.find((step) => step.id === '0');
   }
 
-  return steps[nodeId];
+  return steps.find((step) => step.id === nodeId);
 }
 
 export default steps;

@@ -45,7 +45,7 @@ function HowItWorksSection() {
           <span className="inline-block py-px px-2 mb-4 text-md leading-5 text-orange-500 bg-orange-100 font-medium uppercase rounded-full shadow-sm">
             Como funciona
           </span>
-          <h2 className="mb-4 text-4xl md:text-5xl leading-tight font-bold tracking-tighter">
+          <h2 className="mb-4 text-4xl md:text-5xl leading-tight font-bold tracking-tighter text-gray-900">
             Pare de Perder Vendas por Falta de Atendimento, nosso Chat Automatizado Vende por Você
           </h2>
           <p className="text-lg md:text-xl text-gray-500 font-medium">

@@ -19,7 +19,7 @@ export default function Chat() {
   return (
     <div
       className="fixed flex flex-col max-h-[90%] md:rounded-lg md:w-[370px] w-[90%]
-      md:h-[90%] h-screen shadow-md m-4 right-0 bottom-0 bg-gray-100"
+      md:h-[90%] h-screen shadow-md m-4 right-0 bottom-0 bg-transparent z-50"
     >
       <Navbar />
       <div
@@ -28,10 +28,18 @@ export default function Chat() {
           scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter
           scrollbar-w-2 scrolling-touch md:mt-0 bg-gray-100"
       >
-        <BotMessage
-          text={ [steps[0].title, steps[0].message] }
-          functions={ <BotButtonsOpt items={ steps[0].options } /> }
-        />
+        {steps.map((step) => {
+          if (step.id === '0') {
+            return (
+              <BotMessage
+                key={ step.id }
+                text={ [step.title, step.message] }
+                functions={ <BotButtonsOpt items={ step.options } /> }
+              />
+            );
+          }
+          return null;
+        })}
         {messages.map((m, i) => cloneElement(m.element, { key: i }))}
         {isLoading && <Loading />}
         <div ref={ messagesEndRef } />

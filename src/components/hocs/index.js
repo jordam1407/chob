@@ -1,1 +1,1 @@
-export * from './whit-animation.hoc'
+export * from './whit-animation.hoc';

@@ -1,26 +1,29 @@
 import React from 'react';
-import chob from '../assets/chob.png';
+import chob from '../assets/chob-sem-fundo.png';
 import loading from '../assets/loading.gif';
 
 export default function Loading() {
   return (
     <div id="bot-message" className="flex items-end">
       <div
-        className="flex flex-col mb-8 space-y-2 max-w-xs mx-2 order-1
-  items-start"
+        className="flex flex-col mb-8 space-y-2 mx-2 order-1
+    items-start"
       >
-        <div
-          className="px-4 py-2 space-x-1 rounded-lg inline-block text-sm rounded-bl-none
-    bg-gray-300 text-gray-600"
+        <span
+          className="px-4 py-2 space-y-6 rounded-lg inline-block text-sm rounded-bl-none
+        bg-[#DCE0F5] text-gray-600"
         >
           <img src={ loading } className="w-8 m-2 animate-bounce" alt="loading" />
-        </div>
+        </span>
       </div>
-      <img
-        src={ chob }
-        alt="chob"
-        className="md:w-16 w-12 rounded-full bg-gray-300"
-      />
+      <div
+        className="relative rounded-full w-[15%] bg-gradient-to-r from-indigo-800
+        to-indigo-900
+        p-1"
+      >
+        <img src={ chob } alt="SigeBot" />
+        <div className="absolute bottom-0 -right-2 h-3 w-3 bg-green-400 rounded-full" />
+      </div>
     </div>
   );
 }

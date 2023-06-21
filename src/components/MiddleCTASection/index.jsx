@@ -1,1 +1,3 @@
-export { default } from './MiddleCTASection'
+import MiddleCTASection from './MiddleCTASection';
+
+export default MiddleCTASection;

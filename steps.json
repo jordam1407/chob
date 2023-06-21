@@ -1,0 +1,49 @@
+{
+  {
+    id: '2',
+    title: 'Nós temos o melhor Custo x Benefício do Mercado!',
+    message: 'Veja nossos planos e preços detalhados:',
+    options: [
+      { value: ['Plano Básico'], label: 'Plano Básico', trigger: '7' },
+      { value: ['Plano Avançado'], label: 'Plano Avançado', trigger: '8' },
+      { value: ['Plano Premium'], label: 'Plano Premium', trigger: '9' },
+    ],
+  },
+  {
+    id: '3',
+    title: 'Pare de perder Leads, dê uma chance ao Chob',
+    message: 'Entre em contato com nossa equipe de vendas para mais informações.',
+    // Add other properties as needed
+    options: [
+      { value: ['Telefone'], label: 'Telefone', trigger: '10' },
+      { value: ['Email'], label: 'Email', trigger: '11' },
+    ],
+  },
+  {
+    id: '4',
+    title: 'Pare de perder Leads, dê uma chance ao Chob',
+    message: 'Conheça mais sobre o Chob e nossa missão.',
+    // Add other properties as needed
+    options: [
+      { value: ['História da Empresa'], label: 'História da Empresa', trigger: '12' },
+      { value: ['Equipe'], label: 'Equipe', trigger: '13' },
+    ],
+  },
+  {
+    id: '5',
+    message: 'Maravilha, após preencher o formulário, nosso time entrará em contato para montar seu Chatbot Personalizado!',
+    // Add other properties as needed
+    input: [
+      { value: 'test form', trigger: 'end' },
+    ],
+  },
+  {
+    id: '6',
+    message: 'Aqui está a tabela de preços dos nossos planos.',
+    // Add other properties as needed
+    options: [
+      { value: ['Opção 1'], label: 'Opção 1', trigger: '16' },
+      { value: ['Opção 2'], label: 'Opção 2', trigger: '17' },
+    ],
+  },
+}

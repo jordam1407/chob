@@ -30,7 +30,7 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <div className="font-custom">
+    <div className="font-custom overflow-hidden sticky top-0 z-50">
       <nav className="relative px-4 py-4 lg:mx-auto flex md:justify-center justify-between shadow items-center bg-gray-900">
         <div className="flex w-full justify-between">
           <a className="text-3xl font-bold leading-none flex" href="/">

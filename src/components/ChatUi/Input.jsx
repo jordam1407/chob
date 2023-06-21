@@ -10,11 +10,12 @@ export default function Input() {
 
   return (
     <form
+      className="bg-gray-100"
       style={ { touchAction: 'manipulation' } }
       onSubmit={ (e) => {
         e.preventDefault();
-        setInput('');
         userInputFilter(input, currentStep || initialStep);
+        setInput('');
       } }
     >
       <label

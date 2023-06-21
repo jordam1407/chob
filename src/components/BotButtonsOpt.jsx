@@ -11,6 +11,7 @@ export default function BotButtonsOpt({ items }) {
           <button
             key={ `${trigger}${index}` }
             onClick={ () => {
+              console.log(trigger);
               userMessage(label, trigger);
             } }
             className="px-4 py-2 ml-0 mx-2 my-2 rounded-full inline-block text-sm
