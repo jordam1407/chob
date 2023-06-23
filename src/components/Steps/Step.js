@@ -33,8 +33,13 @@ const steps = [
     end: true,
   },
   {
+    id: 'what',
+    message: ['Me desculpe, não consegui entender o que você me disse, vamos voltar ao menu inicial'],
+    trigger: '0',
+  },
+  {
     id: 'help',
-    message: getRandomGreeting(additionalHelpMessages),
+    message: [getRandomGreeting(additionalHelpMessages)],
     options: [
       { value: ['sim', 'claro', 'com certeza', 'certamente', 'sem dúvida', 'é verdade', 'sim, por favor', 'sim, eu aceito'], label: 'Sim', trigger: '0' },
       { value: ['não', 'não, obrigado', 'não quero', 'de jeito nenhum', 'nem pensar', 'não, obrigada'], label: 'Não', trigger: 'end' },
@@ -42,21 +47,20 @@ const steps = [
   },
   {
     id: '0',
-    title: 'Olá, eu sou o Chob.',
-    message: getRandomGreeting(greetings),
+    message: ['Olá, eu sou o Chob.', getRandomGreeting(greetings)],
     options: [
       { value: ['⚡ Teste grátis', 'teste grátis', 'free trial', 'teste', 'grátis', 'gratis'], label: '⚡ Teste grátis', trigger: '1' },
       { value: ['💲 Preços', 'preços', 'pricing', 'preco', 'valor', 'preço'], label: '💲 Preços', trigger: '4' },
       { value: ['💻 Contatar vendas', 'contatar vendas', 'sales', 'vendedor', 'atendente'], label: '💻 Contatar vendas', trigger: '5' },
-      { value: ['💡 Sobre o Chob', 'sobre o chob', 'about Chob', 'sobre', 'chob'], label: '💡 Sobre o Chob', trigger: '' },
+      { value: ['💡 Sobre o Chob', 'sobre o chob', 'about Chob', 'sobre', 'chob'], label: '💡 Sobre o Chob', trigger: '7' },
     ],
   },
   // teste grátis path
   {
     id: '1',
-    title: 'Pare de perder Leads, dê uma chance ao Chob!',
     message: [
       'Você pode testar o Chob por 14 dias grátis sem nenhum compromisso!',
+      'Pare de perder Leads, dê uma chance ao Chob!',
     ],
     options: [
       { value: ['Iniciar o teste agora', 'teste', 'iniciar', 'agora'], label: 'Iniciar o teste agora', trigger: '2' },
@@ -66,32 +70,37 @@ const steps = [
   },
   {
     id: '2',
-    message: 'Maravilha! São 7 dias de teste grátis no plano "Pro", após preencher o formulário, nosso time entrará em contato para montar seu Chatbot Personalizado!',
+    message: ['Maravilha! São 7 dias de teste grátis no plano "Pro", após preencher o formulário, nosso time entrará em contato para montar seu Chatbot Personalizado!'],
     component:
       { value: 'test form', trigger: '3' },
 
   },
   {
     id: '3',
-    message: 'Parabéns! Seu teste grátis foi solicitado. Entraremos em contato em breve com os próximos passos.',
+    message: ['Parabéns! Seu teste grátis foi solicitado. Entraremos em contato em breve com os próximos passos.'],
     trigger: 'help',
   },
   {
     id: '4',
-    message: 'Ótimo, aqui está nossa tabela de preços:',
+    message: ['Ótimo, aqui está nossa tabela de preços:'],
     component:
       { value: 'price table' },
   },
   {
     id: '5',
-    message: 'Muito bem, por favor preencha o formulário para prosseguirmos.',
+    message: ['Muito bem, por favor preencha o formulário para prosseguirmos.'],
     component:
       { value: 'test form', trigger: '6' },
   },
   {
     id: '6',
-    message: 'Que bacana, nosso time de vendas entrará em contato o mais rápido possível!',
+    message: ['Que bacana, nosso time de vendas entrará em contato o mais rápido possível!'],
     trigger: 'help',
+  },
+  {
+    id: '7',
+    message: ['Sou um chatbot inteligente para respostas rápidas e personalizadas. Estou aqui para ajudar com informações e suporte.', 'Integro-me perfeitamente ao seu site para atender suas necessidades. Sempre aprendendo e evoluindo.', 'Ofereço recursos de análise e atendimento excepcional. Busco insights valiosos para melhorar sua experiência.'],
+    trigger: '0',
   },
 ];
 

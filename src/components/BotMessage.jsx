@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
 import chob from '../assets/chob-sem-fundo.png';
@@ -9,22 +10,20 @@ export default function BotMessage({ text = '', functions = [] }) {
         className="flex w-[85%] flex-col mb-8 space-y-2 mx-2 order-1
     items-start"
       >
-        <span
-          className="px-4 py-2 space-y-6 rounded-lg inline-block text-sm rounded-bl-none
-        bg-[#DCE0F5] text-gray-600"
-        >
-          {text.map((t, i) => {
-            if (typeof t === 'string' && t.length > 0) {
-              return (
-                <React.Fragment key={ i }>
-                  <span>{t}</span>
-                  <br />
-                </React.Fragment>
-              );
-            }
-            return null;
-          })}
-        </span>
+        {text.map((t, i) => {
+          if (typeof t === 'string' && t.length > 0) {
+            return (
+              <span
+                key={ i }
+                className="px-4 py-2 space-y-6 rounded-lg inline-block text-sm rounded-bl-none bg-[#DCE0F5] text-gray-600"
+              >
+                <span>{t}</span>
+                <br />
+              </span>
+            );
+          }
+          return null;
+        })}
         {functions}
       </div>
       <div

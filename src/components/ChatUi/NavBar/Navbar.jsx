@@ -6,9 +6,9 @@ export default function Navbar() {
   const { setOpen } = useContext(BotContext);
   return (
     <div
-      className="flex md:static h-20 w-full md:h-24 top-0
+      className="flex sm:static h-24 w-full sm:h-24 top-0
       bg-gradient-to-r from-indigo-800 to-indigo-900
-      md:rounded-t-lg rounded-t-2xl md:rounded-none pl-8 pr-4"
+      sm:rounded-t-lg rounded-t-2xl sm:rounded-none pl-8 pr-4"
     >
       <img
         src={ chob }

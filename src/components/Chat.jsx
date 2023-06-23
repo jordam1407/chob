@@ -18,13 +18,13 @@ export default function Chat() {
 
   return (
     <div
-      className="fixed flex flex-col max-h-[90%] md:rounded-lg md:w-[370px] w-[90%]
-      md:h-[90%] h-screen shadow-md m-4 right-0 bottom-0 bg-transparent z-50"
+      className="fixed flex flex-col max-h-[90%] md:rounded-lg sm:w-[370px] w-[90%]
+      h-[90%] shadow-md m-4 right-0 bottom-0 bg-transparent z-50"
     >
       <Navbar />
       <div
         id="messages"
-        className="flex flex-col flex-1 space-y-8 p-3 overflow-y-auto
+        className="flex h-[100%] flex-col flex-1 space-y-8 p-3 overflow-y-auto
           scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter
           scrollbar-w-2 scrolling-touch md:mt-0 bg-gray-100"
       >
@@ -33,7 +33,7 @@ export default function Chat() {
             return (
               <BotMessage
                 key={ step.id }
-                text={ [step.title, step.message] }
+                text={ step.message }
                 functions={ <BotButtonsOpt items={ step.options } /> }
               />
             );

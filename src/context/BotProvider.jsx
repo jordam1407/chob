@@ -22,26 +22,6 @@ export default function BotProvider({ children }) {
   const [currentStep, setCurrentStep] = useState(initialStep);
   const [open, setOpen] = useState(false);
 
-  const repeatMessage = async () => {
-    setIsLoading(true);
-    const notImplemented = {
-      element: (
-        <BotMessage
-          text={ [
-            'Desculpe, acho que não entendi sua pergunta, vamos tentar novamente.',
-            'Selecione uma opção para continuarmos:',
-          ] }
-          functions={ <BotButtonsOpt items={ currentStep.options } /> }
-        />
-      ),
-    };
-
-    setTimeout(() => {
-      setMessages((prev) => [...prev, notImplemented]);
-      setIsLoading(false);
-    }, QUINHENTOS);
-  };
-
   const createUserMessage = (text) => {
     const message = {
       element: <UserMessage message={ text } />,
@@ -56,7 +36,7 @@ export default function BotProvider({ children }) {
     const botMessage = {
       element: (
         <BotMessage
-          text={ [nextStep.title ? nextStep.title : '', ...nextStep.message] }
+          text={ nextStep.message }
         />
       ),
     };
@@ -71,7 +51,7 @@ export default function BotProvider({ children }) {
     const botMessage = {
       element: (
         <BotMessage
-          text={ [nextStep.title ? nextStep.title : '', nextStep.message] }
+          text={ nextStep.message }
           functions={ <BotButtonsOpt items={ nextStep.options } /> }
         />
       ),
@@ -88,7 +68,7 @@ export default function BotProvider({ children }) {
       const botMessage = {
         element: (
           <BotMessage
-            text={ [nextStep.title ? nextStep.title : '', nextStep.message] }
+            text={ nextStep.message }
             functions={ <InputForm items={ nextStep.component } /> }
           />
         ),
@@ -102,7 +82,7 @@ export default function BotProvider({ children }) {
       const botMessage = {
         element: (
           <BotMessage
-            text={ [nextStep.title ? nextStep.title : '', nextStep.message] }
+            text={ nextStep.message }
           />
         ),
       };
@@ -128,7 +108,7 @@ export default function BotProvider({ children }) {
     const nextStep = chatbot(trigger);
 
     if (!nextStep) {
-      return repeatMessage();
+      return userMessage('', 'what');
     }
 
     setCurrentStep(nextStep);
@@ -140,31 +120,34 @@ export default function BotProvider({ children }) {
       return createBotMessage(nextStep);
     }
     if (nextStep.end) {
-      console.log(nextStep);
       return createEndBotMessage(nextStep);
     }
     if (nextStep.component) {
       return createBotMessageForm(nextStep);
     }
     if (nextStep.trigger) {
-      createBotMessage(nextStep);
-      return userMessage('', nextStep.trigger);
+      createEndBotMessage(nextStep);
+      setTimeout(() => userMessage('', nextStep.trigger), MILXCINCO);
     }
   }
 
   function userInputFilter(input, step) {
     if (!step) {
       createUserMessage(input);
-      return repeatMessage();
+      return userMessage('', 'what');
     }
 
+    if (!step.options) {
+      createUserMessage(input);
+      return userMessage('', 'what');
+    }
     const selectedOption = step.options.find((option) => option.value.some(
       (recognizedInput) => recognizedInput.toLowerCase() === input.toLowerCase(),
     ));
 
     if (!selectedOption) {
       createUserMessage(input);
-      return repeatMessage();
+      return userMessage('', 'what');
     }
 
     return userMessage(input, selectedOption.trigger);
