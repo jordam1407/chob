@@ -23,7 +23,7 @@ function NumbersSection() {
           />
         </svg>
       </div>
-      <div className="container px-4 py-6 mx-auto bg-gray-900">
+      <div className="container px-4 py-24 mx-auto bg-gray-900">
         <div className="text-center">
           <span className="inline-block py-px px-2 mb-4 text-md leading-5 text-orange-500 bg-orange-100 font-medium uppercase rounded-full">
             Nossos Números

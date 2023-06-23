@@ -68,6 +68,7 @@ const steps = [
       { value: ['Voltar ao menu', 'menu', 'inicio', 'início'], label: 'Voltar ao menu', trigger: '0' },
     ],
   },
+  // Formulário para teste grátis
   {
     id: '2',
     message: ['Maravilha! São 7 dias de teste grátis no plano "Pro", após preencher o formulário, nosso time entrará em contato para montar seu Chatbot Personalizado!'],
@@ -80,12 +81,14 @@ const steps = [
     message: ['Parabéns! Seu teste grátis foi solicitado. Entraremos em contato em breve com os próximos passos.'],
     trigger: 'help',
   },
+  // Tabela de preços
   {
     id: '4',
     message: ['Ótimo, aqui está nossa tabela de preços:'],
     component:
       { value: 'price table' },
   },
+  // Formulário para compra
   {
     id: '5',
     message: ['Muito bem, por favor preencha o formulário para prosseguirmos.'],

@@ -48,26 +48,59 @@ function PricingSection() {
       <div className="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto">
         <div className="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
           <div className="text-center">
-            <div className="text-lg font-semibold">Start</div>
+            <div className="text-lg font-semibold">Base</div>
             <div className="flex items-center justify-center mt-2">
-              <div className="mr-1 text-5xl font-bold">Free</div>
+              <div className="mr-1 text-5xl font-bold">R$59</div>
+              <div className="text-gray-700">/ mês</div>
             </div>
             <div className="mt-2 space-y-3">
-              <div className="text-gray-700">10 deploys per day</div>
-              <div className="text-gray-700">10 GB of storage</div>
-              <div className="text-gray-700">20 domains</div>
+              <div className="text-gray-700">1 modelo de ChatBot</div>
+              <div className="text-gray-700">Chats Ilimitados</div>
+              <div className="text-gray-700">100% Customizável</div>
+              <div className="text-gray-700">Desenvolvedor de Chatbot</div>
+              <div className="text-gray-700">Suporte/Instalação</div>
             </div>
           </div>
           <div>
+            <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+              Deixe o Chob fazer seus atendimentos!
+            </p>
             <a
               href="/"
               className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
             >
-              Start for free
+              Comprar Base
             </a>
+          </div>
+        </div>
+        <div className="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
+          <div className="text-center">
+            <div className="text-lg font-semibold">Mid</div>
+            <div className="flex items-center justify-center mt-2">
+              <div className="mr-1 text-5xl font-bold">$89</div>
+              <div className="text-gray-700">/ mês</div>
+            </div>
+            <div className="mt-2 space-y-3">
+              <div className="text-gray-700">2 modelos de ChatBot</div>
+              <div className="text-gray-700">1 Atualização de ChatBot/mês</div>
+              <div className="text-gray-700">Chats Ilimitados</div>
+              <div className="text-gray-700">100% Customizável</div>
+              <div className="text-gray-700">Desenvolvedor de Chatbot</div>
+              <div className="text-gray-700">Suporte/Instalação</div>
+              <div className="text-gray-700">Dashboard</div>
+              <div className="text-gray-700">Histórico de Chats</div>
+            </div>
+          </div>
+          <div>
             <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
-              Sed ut unde omnis iste natus accusantium doloremque.
+              Tenha em mãos todo histórico de conversas para analisar como desejar!
             </p>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
+            >
+              Comprar Mid
+            </a>
           </div>
         </div>
         <div className="relative flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow border-orange-600">
@@ -79,50 +112,31 @@ function PricingSection() {
           <div className="text-center">
             <div className="text-lg font-semibold">Pro</div>
             <div className="flex items-center justify-center mt-2">
-              <div className="mr-1 text-5xl font-bold">$38</div>
-              <div className="text-gray-700">/ mo</div>
+              <div className="mr-1 text-5xl font-bold">R$119</div>
+              <div className="text-gray-700">/ mês</div>
             </div>
             <div className="mt-2 space-y-3">
-              <div className="text-gray-700">200 deploys per day</div>
-              <div className="text-gray-700">80 GB of storage</div>
-              <div className="text-gray-700">Global CDN</div>
+              <div className="text-gray-700">4 modelos de ChatBot</div>
+              <div className="text-gray-700">2 Atualizações de ChatBot/mês</div>
+              <div className="text-gray-700">Chats Ilimitados</div>
+              <div className="text-gray-700">100% Customizável</div>
+              <div className="text-gray-700">Desenvolvedor de Chatbot</div>
+              <div className="text-gray-700">Suporte/Instalação</div>
+              <div className="text-gray-700">Dashboard</div>
+              <div className="text-gray-700">Histórico de Chats</div>
+              <div className="text-gray-700">Analytics Avançado</div>
             </div>
           </div>
           <div>
+            <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+              Receba analytics e insights detalhados dos atendimentos, empodere seu negócio!
+            </p>
             <a
               href="/"
               className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange-600 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
             >
-              Buy Pro
+              Comprar Pro
             </a>
-            <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
-              Sed ut unde omnis iste natus accusantium doloremque.
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
-          <div className="text-center">
-            <div className="text-lg font-semibold">Business</div>
-            <div className="flex items-center justify-center mt-2">
-              <div className="mr-1 text-5xl font-bold">$78</div>
-              <div className="text-gray-700">/ mo</div>
-            </div>
-            <div className="mt-2 space-y-3">
-              <div className="text-gray-700">500 GB of storage</div>
-              <div className="text-gray-700">Unlimited domains</div>
-              <div className="text-gray-700">24/7 Support</div>
-            </div>
-          </div>
-          <div>
-            <a
-              href="/"
-              className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
-            >
-              Buy Business
-            </a>
-            <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
-              Sed ut unde omnis iste natus accusantium doloremque.
-            </p>
           </div>
         </div>
       </div>
