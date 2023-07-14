@@ -8,16 +8,16 @@ export default function Navbar() {
     <div
       className="flex sm:static h-24 w-full sm:h-24 top-0
       bg-gradient-to-r from-indigo-800 to-indigo-900
-      sm:rounded-t-lg rounded-t-2xl sm:rounded-none pl-8 pr-4"
+      sm:rounded-t-lg sm:rounded-none pl-8 pr-4"
     >
       <img
         src={ chob }
         alt="SigeBot"
-        className="w-12 my-auto"
+        className="w-10 my-auto"
       />
       <div className="text-white ml-2 my-auto font-bold font-custom flex flex-col">
         <span className="text-2xl text-white ml-2 my-auto font-bold font-custom">
-          Chob
+          LeadsBy
         </span>
         <span className="text-sm text-white font-light ml-2 my-auto font-custom">
           Online

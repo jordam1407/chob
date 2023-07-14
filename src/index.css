@@ -5,9 +5,5 @@
 @tailwind utilities;
 
 body {
-  background: #f3f4f6;
-}
-
-html, body, #root {
-  height: 100%;
+  background: transparent
 }

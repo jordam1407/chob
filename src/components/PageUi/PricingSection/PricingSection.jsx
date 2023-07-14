@@ -45,43 +45,16 @@ function PricingSection() {
           accusantium doloremque rem aperiam, eaque ipsa quae.
         </p>
       </div>
-      <div className="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto">
+      <div className="flex justify-center space-x-4">
         <div className="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
-          <div className="text-center">
+          <div className="text-left">
             <div className="text-lg font-semibold">Base</div>
-            <div className="flex items-center justify-center mt-2">
-              <div className="mr-1 text-5xl font-bold">R$59</div>
-              <div className="text-gray-700">/ mês</div>
-            </div>
-            <div className="mt-2 space-y-3">
-              <div className="text-gray-700">1 modelo de ChatBot</div>
-              <div className="text-gray-700">Chats Ilimitados</div>
-              <div className="text-gray-700">100% Customizável</div>
-              <div className="text-gray-700">Desenvolvedor de Chatbot</div>
-              <div className="text-gray-700">Suporte/Instalação</div>
-            </div>
-          </div>
-          <div>
-            <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
-              Deixe o Chob fazer seus atendimentos!
-            </p>
-            <a
-              href="/"
-              className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
-            >
-              Comprar Base
-            </a>
-          </div>
-        </div>
-        <div className="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
-          <div className="text-center">
-            <div className="text-lg font-semibold">Mid</div>
             <div className="flex items-center justify-center mt-2">
               <div className="mr-1 text-5xl font-bold">$89</div>
               <div className="text-gray-700">/ mês</div>
             </div>
             <div className="mt-2 space-y-3">
-              <div className="text-gray-700">2 modelos de ChatBot</div>
+              <div className="text-gray-700">Gerenciamento ded Leads</div>
               <div className="text-gray-700">1 Atualização de ChatBot/mês</div>
               <div className="text-gray-700">Chats Ilimitados</div>
               <div className="text-gray-700">100% Customizável</div>
@@ -93,7 +66,7 @@ function PricingSection() {
           </div>
           <div>
             <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
-              Tenha em mãos todo histórico de conversas para analisar como desejar!
+              Tenha em mãos todo histórico de conversas e analytics básico!
             </p>
             <a
               href="/"
@@ -109,14 +82,14 @@ function PricingSection() {
               Most Popular
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-left">
             <div className="text-lg font-semibold">Pro</div>
             <div className="flex items-center justify-center mt-2">
               <div className="mr-1 text-5xl font-bold">R$119</div>
               <div className="text-gray-700">/ mês</div>
             </div>
             <div className="mt-2 space-y-3">
-              <div className="text-gray-700">4 modelos de ChatBot</div>
+              <div className="text-gray-700">Gerenciamento ded Leads</div>
               <div className="text-gray-700">2 Atualizações de ChatBot/mês</div>
               <div className="text-gray-700">Chats Ilimitados</div>
               <div className="text-gray-700">100% Customizável</div>

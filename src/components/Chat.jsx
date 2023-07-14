@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useContext, cloneElement } from 'react';
 import BotContext from '../context/BotContext';
 import Loading from './Loading';
-import BotButtonsOpt from './BotButtonsOpt';
 import Navbar from './ChatUi/NavBar/Navbar';
-import BotMessage from './BotMessage';
 import Input from './ChatUi/Input';
 import Footer from './ChatUi/Footer';
-import steps from './Steps/Step';
+import { withAnimation } from './hocs/whit-animation.hoc';
 
-export default function Chat() {
+function Chat() {
   const { messages, isLoading } = useContext(BotContext);
 
   const messagesEndRef = useRef(null);
@@ -18,8 +16,8 @@ export default function Chat() {
 
   return (
     <div
-      className="fixed flex flex-col max-h-[90%] md:rounded-lg sm:w-[370px] w-[90%]
-      h-[90%] shadow-md m-4 right-0 bottom-0 bg-transparent z-50"
+      className="fixed flex flex-col h-full w-full md:rounded-lg sm:h-[80%]
+      sm:w-[370px] shadow-md md:m-4 right-0 bottom-20 bg-transparent z-50"
     >
       <Navbar />
       <div
@@ -28,18 +26,6 @@ export default function Chat() {
           scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter
           scrollbar-w-2 scrolling-touch md:mt-0 bg-gray-100"
       >
-        {steps.map((step) => {
-          if (step.id === '0') {
-            return (
-              <BotMessage
-                key={ step.id }
-                text={ step.message }
-                functions={ <BotButtonsOpt items={ step.options } /> }
-              />
-            );
-          }
-          return null;
-        })}
         {messages.map((m, i) => cloneElement(m.element, { key: i }))}
         {isLoading && <Loading />}
         <div ref={ messagesEndRef } />
@@ -49,3 +35,5 @@ export default function Chat() {
     </div>
   );
 }
+
+export default withAnimation(Chat, 'fade-in');

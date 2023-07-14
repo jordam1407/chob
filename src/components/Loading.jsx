@@ -17,11 +17,11 @@ export default function Loading() {
         </span>
       </div>
       <div
-        className="relative rounded-full w-[15%] bg-gradient-to-r from-indigo-800
+        className="relative flex rounded-full w-10 h-10 bg-gradient-to-r from-indigo-800
         to-indigo-900
         p-1"
       >
-        <img src={ chob } alt="SigeBot" />
+        <img src={ chob } alt="SigeBot" className="h-6 mx-auto my-auto" />
         <div className="absolute bottom-0 -right-2 h-3 w-3 bg-green-400 rounded-full" />
       </div>
     </div>

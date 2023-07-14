@@ -2,8 +2,8 @@
 /* eslint-disable max-len */
 const greetings = [
   'Tudo bem? Como posso te auxiliar hoje?',
-  'Estou aqui para responder às suas perguntas.',
-  'É um prazer ajudar. Como posso ser útil?',
+  'Tudo bem? Estou aqui para responder às suas perguntas.',
+  'Tudo bem? Como posso ser útil?',
 ];
 const endGreetings = [
   'Obrigado por conversar conosco!',
@@ -47,14 +47,24 @@ const steps = [
   },
   {
     id: '0',
-    message: ['Olá, eu sou o Chob.', getRandomGreeting(greetings)],
+    message: ['Olá, eu sou o Chob, atendente da bio do @chobchat.', getRandomGreeting(greetings)],
     options: [
-      { value: ['⚡ Teste grátis', 'teste grátis', 'free trial', 'teste', 'grátis', 'gratis'], label: '⚡ Teste grátis', trigger: '1' },
-      { value: ['💲 Preços', 'preços', 'pricing', 'preco', 'valor', 'preço'], label: '💲 Preços', trigger: '4' },
-      { value: ['💻 Contatar vendas', 'contatar vendas', 'sales', 'vendedor', 'atendente'], label: '💻 Contatar vendas', trigger: '5' },
-      { value: ['💡 Sobre o Chob', 'sobre o chob', 'about Chob', 'sobre', 'chob'], label: '💡 Sobre o Chob', trigger: '7' },
+      { value: ['⚡ Teste grátis', 'teste grátis', 'free trial', 'teste', 'grátis', 'gratis'], label: '⚡ Contato e Outras Redes', trigger: '1' },
+      { value: ['💲 Preços', 'preços', 'pricing', 'preco', 'valor', 'preço'], label: '💲 Publi e parceria', trigger: '4' },
+      { value: ['💻 Contatar vendas', 'contatar vendas', 'sales', 'vendedor', 'atendente', 'Orçamento'], label: '💻 Orçamentos', trigger: '5' },
+      { value: ['💡 Sobre o Chob', 'sobre o chob', 'about Chob', 'sobre', 'chob'], label: '💡 Quem é @chobchat', trigger: '7' },
     ],
   },
+  // {
+  //   id: '0',
+  //   message: ['Olá, eu sou o Chob.', getRandomGreeting(greetings)],
+  //   options: [
+  //     { value: ['⚡ Teste grátis', 'teste grátis', 'free trial', 'teste', 'grátis', 'gratis'], label: '⚡ Teste grátis', trigger: '1' },
+  //     { value: ['💲 Preços', 'preços', 'pricing', 'preco', 'valor', 'preço'], label: '💲 Preços', trigger: '4' },
+  //     { value: ['💻 Contatar vendas', 'contatar vendas', 'sales', 'vendedor', 'atendente', 'vendas'], label: '💻 Contatar vendas', trigger: '5' },
+  //     { value: ['💡 Sobre o Chob', 'sobre o chob', 'about Chob', 'sobre', 'chob'], label: '💡 Sobre o Chob', trigger: '7' },
+  //   ],
+  // },
   // teste grátis path
   {
     id: '1',
