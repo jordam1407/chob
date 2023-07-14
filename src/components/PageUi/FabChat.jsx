@@ -23,12 +23,28 @@ export default function FabChat() {
       >
 
         <motion.div
-          key={ open ? 'icon-open' : 'icon-closed' }
+          key={ open ? 'icon-closed' : 'icon-open' }
           initial={ { opacity: 0 } }
           animate={ { opacity: 1 } }
           transition={ { duration: 0.3 } }
         >
           {open ? (
+            <svg
+              key="icon-closed" // Add key attribute for closed icon
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-8 mx-auto my-auto"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="#E6EAEE"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M18 6l-12 12" />
+              <path d="M6 6l12 12" />
+            </svg>
+          ) : (
             <svg
               key="icon-open" // Add key attribute for open icon
               className="w-8 mx-auto my-auto"
@@ -70,22 +86,7 @@ export default function FabChat() {
                 strokeLinejoin="round"
               />
             </svg>
-          ) : (
-            <svg
-              key="icon-closed" // Add key attribute for closed icon
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-8 mx-auto my-auto"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="#E6EAEE"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M18 6l-12 12" />
-              <path d="M6 6l12 12" />
-            </svg>
+
           )}
         </motion.div>
       </button>
