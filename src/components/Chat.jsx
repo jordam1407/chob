@@ -17,7 +17,7 @@ function Chat() {
   return (
     <div
       className="fixed flex flex-col h-full w-full md:rounded-lg sm:h-[80%]
-      sm:w-[370px] shadow-md md:m-4 right-0 bottom-20 bg-transparent z-50"
+      sm:w-[370px] shadow-md md:m-4 right-0 bottom-0 sm:bottom-20 bg-transparent z-50"
     >
       <Navbar />
       <div

@@ -15,28 +15,22 @@ export default function FabChat() {
     }
   };
 
-  const show = {
-    opacity: 1,
-    display: 'block',
-  };
-
-  const hide = {
-    opacity: 0,
-    transitionEnd: {
-      display: 'none',
-    },
-  };
   return (
     <div className="fixed m-4 right-0 bottom-0">
       <button
         onClick={ firstMessage }
-        className="w-16 h-16 bg-orange-700 rounded-full hover:bg-orange-800 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none"
+        className={ `w-16 h-16 bg-orange-700 rounded-full hover:bg-orange-800 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none ${open && 'sm:block hidden'}` }
       >
-        {open ? (
-          <motion.div
-            animate={ open ? show : hide }
-          >
+
+        <motion.div
+          key={ open ? 'icon-open' : 'icon-closed' }
+          initial={ { opacity: 0 } }
+          animate={ { opacity: 1 } }
+          transition={ { duration: 0.3 } }
+        >
+          {open ? (
             <svg
+              key="icon-open" // Add key attribute for open icon
               className="w-8 mx-auto my-auto"
               viewBox="0 0 24 24"
               fill="none"
@@ -76,12 +70,9 @@ export default function FabChat() {
                 strokeLinejoin="round"
               />
             </svg>
-          </motion.div>
-        ) : (
-          <motion.div
-            animate={ !open ? show : hide }
-          >
+          ) : (
             <svg
+              key="icon-closed" // Add key attribute for closed icon
               xmlns="http://www.w3.org/2000/svg"
               className="w-8 mx-auto my-auto"
               viewBox="0 0 24 24"
@@ -95,8 +86,8 @@ export default function FabChat() {
               <path d="M18 6l-12 12" />
               <path d="M6 6l12 12" />
             </svg>
-          </motion.div>
-        )}
+          )}
+        </motion.div>
       </button>
     </div>
   );
