@@ -28,6 +28,21 @@ export default function BotProvider({ children }) {
     date: new Date().toLocaleString(),
   });
   const [open, setOpen] = useState(false);
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    );
+    setMobile(isMobileDevice);
+    window.parent.postMessage(
+      {
+        type: 'iframe-data',
+        payload: { isOpen: open, isMobile: isMobileDevice },
+      },
+      '*',
+    );
+  }, [open]);
 
   const createUserMessage = (text) => {
     const message = {
@@ -176,6 +191,7 @@ export default function BotProvider({ children }) {
     open,
     setOpen,
     createBotMessage,
+    mobile,
   };
 
   const deps2 = {

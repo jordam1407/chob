@@ -8,7 +8,7 @@ export default function Navbar() {
     <div
       className="flex sm:static h-24 w-full sm:h-24 top-0
       bg-gradient-to-r from-indigo-800 to-indigo-900
-      sm:rounded-t-lg sm:rounded-none pl-8 pr-4"
+      rounded-t-lg rounded-none pl-8 pr-4"
     >
       <img
         src={ chob }

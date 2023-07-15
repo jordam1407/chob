@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useRef, useContext, cloneElement } from 'react';
 import BotContext from '../context/BotContext';
 import Loading from './Loading';
@@ -7,7 +8,7 @@ import Footer from './ChatUi/Footer';
 import { withAnimation } from './hocs/whit-animation.hoc';
 
 function Chat() {
-  const { messages, isLoading } = useContext(BotContext);
+  const { messages, isLoading, mobile } = useContext(BotContext);
 
   const messagesEndRef = useRef(null);
   useEffect(() => {
@@ -16,8 +17,7 @@ function Chat() {
 
   return (
     <div
-      className="fixed flex flex-col h-full w-full md:rounded-lg sm:h-[80%]
-      sm:w-[370px] shadow-md md:m-4 right-0 bottom-0 sm:bottom-20 bg-transparent z-50"
+      className={ `fixed flex flex-col shadow-md right-0 bg-transparent z-50 ${mobile ? 'bottom-0 h-full w-full' : 'rounded-lg bottom-20 m-4 w-[370px] h-[80%]'}` }
     >
       <Navbar />
       <div

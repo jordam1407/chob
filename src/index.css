@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background: transparent
+body html {
+  background: transparent;
+  pointer-events: none;
 }

@@ -15,9 +15,6 @@ function PriceTable() {
             <th className="bg-green-500 text-gray-100 rounded-b-lg p-2 font-bold">
               Base
             </th>
-            <th className="bg-blue-500 text-gray-100 rounded-b-lg p-2 font-bold">
-              Mid
-            </th>
             <th className="bg-red-500 text-gray-100 rounded-b-lg p-2 font-bold">
               Pro
             </th>
@@ -28,7 +25,6 @@ function PriceTable() {
             <td className="p-2 text-indigo-800 font-semibold text-sm">
               Preço/mês
             </td>
-            <td className="p-2 text-indigo-800 font-bold">R$49</td>
             <td className="p-2 text-indigo-800 font-bold">R$89</td>
             <td className="p-2 text-indigo-800 font-bold">R$119</td>
           </tr>
@@ -36,7 +32,6 @@ function PriceTable() {
             <td className="p-2 font-semibold text-sm text-indigo-800">
               Modelos
             </td>
-            <td className="p-2 text-green-600 font-semibold">1</td>
             <td className="p-2 text-green-600 font-semibold">2</td>
             <td className="p-2 text-green-600 font-semibold">4</td>
           </tr>
@@ -44,7 +39,6 @@ function PriceTable() {
             <td className="p-2 font-semibold text-sm text-indigo-800">
               Atualizações/mês
             </td>
-            <td className="p-2 text-red-600 font-semibold">0</td>
             <td className="p-2 text-green-600 font-semibold">1</td>
             <td className="p-2 text-green-600 font-semibold">2</td>
           </tr>
@@ -54,7 +48,6 @@ function PriceTable() {
             </td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
-            <td className="p-2 text-green-600 font-semibold">✓</td>
           </tr>
           <tr className="hover:bg-gray-200 bg-gray-100">
             <td className="p-2 font-semibold text-sm text-indigo-800">
@@ -62,13 +55,11 @@ function PriceTable() {
             </td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
-            <td className="p-2 text-green-600 font-semibold">✓</td>
           </tr>
           <tr className="hover:bg-gray-200">
             <td className="p-2 font-semibold text-sm text-indigo-800">
               Suporte
             </td>
-            <td className="p-2 text-red-600 font-semibold">✗</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
           </tr>
@@ -76,7 +67,6 @@ function PriceTable() {
             <td className="p-2 font-semibold text-sm text-indigo-800">
               Dashboard
             </td>
-            <td className="p-2 text-red-600 font-semibold">✗</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
           </tr>
@@ -84,7 +74,6 @@ function PriceTable() {
             <td className="p-2 font-semibold text-sm text-indigo-800">
               Histórico
             </td>
-            <td className="p-2 text-red-600 font-semibold">✗</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
           </tr>
@@ -92,7 +81,6 @@ function PriceTable() {
             <td className="p-2 font-semibold text-sm text-indigo-800">
               Analytics
             </td>
-            <td className="p-2 text-red-600 font-semibold">✗</td>
             <td className="p-2 text-red-600 font-semibold">✗</td>
             <td className="p-2 text-green-600 font-semibold">✓</td>
           </tr>
